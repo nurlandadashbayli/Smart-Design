@@ -29,20 +29,22 @@ class DataController: ObservableObject {
         }
     }
     
-    func addDesign(title: String, area: Double, context: NSManagedObjectContext) {
+    func addDesign(title: String, area: Double, people: Double, context: NSManagedObjectContext) {
         let design = Design(context: context)
         design.id = UUID()
         design.date = Date()
         design.title = title
         design.area = area
+        design.people = people
         
         save(context: context)
     }
     
-    func editDesign(design: Design, title: String, area: Double, context: NSManagedObjectContext) {
+    func editDesign(design: Design, title: String, area: Double, people: Double, context: NSManagedObjectContext) {
         design.date = Date()
         design.title = title
         design.area = area
+        design.people = people
         
         save(context: context)
     }

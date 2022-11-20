@@ -28,6 +28,9 @@ struct ContentView: View {
                                         .bold()
                                     Text("\(Int(design.area))") +
                                     Text (" square m")
+                                    
+                                    Text("\(Int(design.people))") +
+                                    Text (" people")
                                     Spacer()
                                 }
                             }
