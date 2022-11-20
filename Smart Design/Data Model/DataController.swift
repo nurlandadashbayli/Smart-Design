@@ -29,22 +29,25 @@ class DataController: ObservableObject {
         }
     }
     
-    func addDesign(title: String, area: Double, people: Double, context: NSManagedObjectContext) {
+    func addDesign(title: String, roomDepth: Double, roomWidth: Double, area: Double, people: Double, context: NSManagedObjectContext) {
         let design = Design(context: context)
         design.id = UUID()
         design.date = Date()
         design.title = title
-        design.area = area
-        design.people = people
+        design.roomDepth = roomDepth
+        design.roomWidth = roomWidth
+        design.area = roomWidth * roomDepth
+        design.people = (roomWidth * roomDepth)/2
         
         save(context: context)
     }
     
-    func editDesign(design: Design, title: String, area: Double, people: Double, context: NSManagedObjectContext) {
+    func editDesign(design: Design, title: String, roomDepth: Double, roomWidth: Double, area: Double, people: Double, context: NSManagedObjectContext) {
         design.date = Date()
         design.title = title
-        design.area = area
-        design.people = people
+        design.roomDepth = roomDepth
+        design.roomWidth = roomWidth
+        design.area = roomWidth * roomDepth
         
         save(context: context)
     }

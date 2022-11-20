@@ -15,6 +15,8 @@ struct AddDesignView: View {
     @State private var title = ""
     @State private var area: Double = 0
     @State private var people: Double = 0
+    @State private var roomWidth: Double = 0
+    @State private var roomDepth: Double = 0
     
     var body: some View {
         Form {
@@ -22,24 +24,31 @@ struct AddDesignView: View {
                 TextField("Design title", text: $title)
                 
                 VStack {
-                    Text("Area: \(Int(area))")
-                    Slider(value: $area, in: 0...1000)
+                    Text("Room Depth: \(Int(roomDepth))")
+                    Slider(value: $roomDepth, in: 0...1000)
                     
-                    Text("People: \(Int(people))")
-                    Slider(value: $people, in: 0...100)
+                   Text("Room Width: \(Int(roomWidth))")
+                    Slider(value: $roomWidth, in: 0...1000)
                 }
                 .padding()
                 
                 HStack {
                     Spacer()
                     Button("Submit") {
-                        DataController().addDesign(title: title, area: area, people: people, context: managedObjectContext)
+                        DataController()
+                            .addDesign(
+                                title: title,
+                                roomDepth: roomDepth,
+                                roomWidth: roomWidth,
+                                area: area,
+                                people: people,
+                                context: managedObjectContext)
                             dismiss()
                     }
                     .padding(.all)
                 }
             }
-        }
+        }.padding(.all)
     }
 }
 

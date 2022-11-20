@@ -17,6 +17,9 @@ struct EditDesignView: View {
     @State private var title = ""
     @State private var area: Double = 0
     @State private var people: Double = 0
+    @State private var roomWidth: Double = 0
+    @State private var roomDepth: Double = 0
+    
     var body: some View {
         
         Form {
@@ -29,18 +32,26 @@ struct EditDesignView: View {
                     }
                 
                 VStack {
-                    Text("Area: \(Int(area))")
-                    Slider(value: $area, in: 0...1000)
-                    
-                    Text("People: \(Int(people))")
-                    Slider(value: $people, in: 0...100)
+                    VStack {
+                        Text("Room Depth: \(Int(roomDepth))")
+                        Slider(value: $roomDepth, in: 0...1000)
+                        
+                        Text("Room Width: \(Int(roomWidth))")
+                        Slider(value: $roomWidth, in: 0...1000)
+                    }
                 }
                 .padding()
                 
                 HStack {
                     Spacer()
                     Button("Submit") {
-                        DataController().editDesign(design: design, title: title, area: area, people: people, context: managedObjectContext)
+                        DataController().editDesign(design: design, title: title,
+                                                    roomDepth: roomDepth,
+                                                    roomWidth: roomWidth,
+                                                    area: area,
+                                                    people: people,
+                                                    context: managedObjectContext)
+                                                dismiss()
                        // dismiss()
                     }
                     .padding(.all)

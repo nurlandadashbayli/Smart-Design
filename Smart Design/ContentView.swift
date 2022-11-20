@@ -31,6 +31,12 @@ struct ContentView: View {
                                     
                                     Text("\(Int(design.people))") +
                                     Text (" people")
+                                    
+                                    Text("\(Int(design.roomWidth))") +
+                                    Text (" m")
+                                    
+                                    Text("\(Int(design.roomDepth))") +
+                                    Text (" m")
                                     Spacer()
                                 }
                             }
@@ -51,14 +57,7 @@ struct ContentView: View {
                 }
                 }
                 
-                ToolbarItem {
-                    Button {
-                        showingEditView.toggle()
-                    }
-                label: {
-                    Label("Edit", systemImage: "slider.horizontal.3")
-                }
-                }
+
             }
             .sheet(isPresented: $showingAddView) {
                 AddDesignView()
