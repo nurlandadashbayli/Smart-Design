@@ -21,13 +21,14 @@ struct ContentView: View {
             VStack(alignment: .leading) {
                 List {
                     ForEach(design) { design in
-                        NavigationLink(destination: EditDesignView(design: design)) {
+                        NavigationLink(destination: Text("editdesignview")) //EditDesignView(design: design))
+                        {
                             HStack {
                                 VStack(alignment: .leading, spacing: 6) {
                                     Text(design.title!)
                                         .bold()
-                                    Text("\(Int(design.area))") +
-                                    Text (" square m")
+                                    Text("\(Int(design.screenDiagonal))") +
+                                    Text (" inches")
                                     
                                     Text("\(Int(design.people))") +
                                     Text (" people")
@@ -37,6 +38,10 @@ struct ContentView: View {
                                     
                                     Text("\(Int(design.roomDepth))") +
                                     Text (" m")
+                                    
+                                    Text("\(Double(design.area))") +
+                                    Text (" m2")
+                                    
                                     Spacer()
                                 }
                             }
@@ -55,10 +60,8 @@ struct ContentView: View {
                 label: {
                     Label("Add", systemImage: "plus.circle")
                 }
-                }
-                
-
             }
+        }
             .sheet(isPresented: $showingAddView) {
                 AddDesignView()
             }

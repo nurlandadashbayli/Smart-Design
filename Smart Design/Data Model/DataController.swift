@@ -29,26 +29,31 @@ class DataController: ObservableObject {
         }
     }
     
-    func addDesign(title: String, roomDepth: Double, roomWidth: Double, area: Double, people: Double, context: NSManagedObjectContext) {
+    func addDesign(title: String, roomDepth: String, roomWidth: String, screenDiagonal: String, context: NSManagedObjectContext) {
         let design = Design(context: context)
         design.id = UUID()
         design.date = Date()
         design.title = title
-        design.roomDepth = roomDepth
-        design.roomWidth = roomWidth
-        design.area = roomWidth * roomDepth
-        design.people = (roomWidth * roomDepth)/2
-        
+        design.roomDepth = Double(roomDepth)!
+        design.roomWidth = Double(roomWidth)!
+        design.area = Double(roomWidth)! * Double(roomDepth)!  //roomWidth * roomDepth
+        design.screenDiagonal = Double(screenDiagonal)!
+        design.screenWidth = (pow( (pow(Double(screenDiagonal)!, 2) / (1 + pow((1/1.78),2))), 0.5)) // inches
+        design.screenHeight = (pow( (pow(Double(screenDiagonal)!, 2) / (1 + pow(1.78, 2))), 0.5)) // inches
+        design.lvd = ((screenWidth / 0.46173638224) * 2.54) / 100  // 2x(tan(13•)
+        design.svd = ((screenWidth / 1.40041507642) * 2.54) / 100 // 2x(tan(35•)
+        design.people = floor((Double(roomWidth)!-2) * (calculateLongestAllowableViewingDistance() - calculateShortesRecommendedViewingDistance()))
         save(context: context)
     }
     
-    func editDesign(design: Design, title: String, roomDepth: Double, roomWidth: Double, area: Double, people: Double, context: NSManagedObjectContext) {
-        design.date = Date()
-        design.title = title
-        design.roomDepth = roomDepth
-        design.roomWidth = roomWidth
-        design.area = roomWidth * roomDepth
-        
-        save(context: context)
-    }
+//    func editDesign(design: Design, title: String, roomDepth: Double, roomWidth: Double, area: Double, people: Double, context: NSManagedObjectContext) {
+//        design.date = Date()
+//        design.title = title
+//        design.roomDepth = roomDepth
+//        design.roomWidth = roomWidth
+//        design.area = roomWidth * roomDepth
+//        
+//        save(context: context)
+//    }
+    
 }

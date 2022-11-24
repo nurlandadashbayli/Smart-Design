@@ -14,8 +14,8 @@
 		54D8F9582926E6C30008489B /* DesignModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F9562926E6C30008489B /* DesignModel.xcdatamodeld */; };
 		54D8F95A2926E7F50008489B /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F9592926E7F50008489B /* DataController.swift */; };
 		54D8F95F2926EE410008489B /* AddDesignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F95E2926EE410008489B /* AddDesignView.swift */; };
-		54D8F9622926F44C0008489B /* TimeFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F9612926F44C0008489B /* TimeFormatting.swift */; };
 		54D8F96429270FA50008489B /* EditDesignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F96329270FA50008489B /* EditDesignView.swift */; };
+		54D8F979292C588C0008489B /* CalculationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F978292C588C0008489B /* CalculationFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +28,8 @@
 		54D8F9572926E6C30008489B /* DesignModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DesignModel.xcdatamodel; sourceTree = "<group>"; };
 		54D8F9592926E7F50008489B /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		54D8F95E2926EE410008489B /* AddDesignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDesignView.swift; sourceTree = "<group>"; };
-		54D8F9612926F44C0008489B /* TimeFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormatting.swift; sourceTree = "<group>"; };
 		54D8F96329270FA50008489B /* EditDesignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDesignView.swift; sourceTree = "<group>"; };
+		54D8F978292C588C0008489B /* CalculationFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +103,7 @@
 		54D8F9602926F4180008489B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				54D8F9612926F44C0008489B /* TimeFormatting.swift */,
+				54D8F978292C588C0008489B /* CalculationFunctions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -183,8 +183,8 @@
 				54D8F9492926E4830008489B /* ContentView.swift in Sources */,
 				54D8F96429270FA50008489B /* EditDesignView.swift in Sources */,
 				54D8F95F2926EE410008489B /* AddDesignView.swift in Sources */,
+				54D8F979292C588C0008489B /* CalculationFunctions.swift in Sources */,
 				54D8F9472926E4830008489B /* Smart_DesignApp.swift in Sources */,
-				54D8F9622926F44C0008489B /* TimeFormatting.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,8 +326,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "NurlanDadashbayli.Smart-Design";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -353,8 +357,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "NurlanDadashbayli.Smart-Design";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

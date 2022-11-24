@@ -13,22 +13,30 @@ struct AddDesignView: View {
     @Environment (\.dismiss) var dismiss
     
     @State private var title = ""
-    @State private var area: Double = 0
-    @State private var people: Double = 0
-    @State private var roomWidth: Double = 0
-    @State private var roomDepth: Double = 0
-    
+    @State private var roomWidth: String = ""
+    @State private var roomDepth: String = ""
+    @State private var screenDiagonal: String = ""
     var body: some View {
         Form {
             Section {
-                TextField("Design title", text: $title)
+                TextField("Design title:", text: $title)
                 
                 VStack {
-                    Text("Room Depth: \(Int(roomDepth))")
-                    Slider(value: $roomDepth, in: 0...1000)
                     
-                   Text("Room Width: \(Int(roomWidth))")
-                    Slider(value: $roomWidth, in: 0...1000)
+                   // Text("Room Width: \(String(roomWidth))")
+                    TextField("Room Width:", text: $roomWidth)
+                    
+                    //Slider(value: $roomWidth, in: 0...100)
+                    TextField("Room Depth:", text: $roomDepth)
+                   // Text("Room Depth: \(String(roomDepth))")
+                    
+                    
+                    TextField("Screen Diagonal:", text: $screenDiagonal)
+                    //Slider(value: $roomDepth, in: 0...100)
+                    
+                    //Text("Screen Diagonal: \(Double(screenDiagonal))")
+                    //Slider(value: $screenDiagonal, in: 0...500)
+                    
                 }
                 .padding()
                 
@@ -40,8 +48,7 @@ struct AddDesignView: View {
                                 title: title,
                                 roomDepth: roomDepth,
                                 roomWidth: roomWidth,
-                                area: area,
-                                people: people,
+                                screenDiagonal: screenDiagonal,
                                 context: managedObjectContext)
                             dismiss()
                     }
