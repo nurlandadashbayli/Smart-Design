@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct HomeView: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(sortDescriptors: [SortDescriptor(\.date, order: .reverse)]) var design: FetchedResults<Design>
@@ -18,8 +18,8 @@ struct ContentView: View {
     var body: some View {
         
         NavigationView {
-            VStack(alignment: .leading) {
-                List {
+           VStack(alignment: .leading) {
+               List {
                     ForEach(design) { design in
                         NavigationLink(destination: Text("editdesignview")) //EditDesignView(design: design))
                         {
@@ -29,19 +29,14 @@ struct ContentView: View {
                                         .bold()
                                     Text("\(Int(design.screenDiagonal))") +
                                     Text (" inches")
-                                    
                                     Text("\(Int(design.people))") +
                                     Text (" people")
-                                    
                                     Text("\(Int(design.roomWidth))") +
                                     Text (" m")
-                                    
                                     Text("\(Int(design.roomDepth))") +
                                     Text (" m")
-                                    
                                     Text("\(Double(design.area))") +
                                     Text (" m2")
-                                    
                                     Spacer()
                                 }
                             }
@@ -49,18 +44,20 @@ struct ContentView: View {
                     }
                     .onDelete(perform: deleteDesign)
                 }
-                .listStyle(.plain)
-            }
-            .navigationTitle("Smart Design")
+                .listStyle(.sidebar)
+               
+           }
             .toolbar {
                 ToolbarItem {
-                    Button {
-                        showingAddView.toggle()
-                    }
-                label: {
-                    Label("Add", systemImage: "plus.circle")
-                }
+                    Button {showingAddView.toggle()}
+                label: {Label("Add", systemImage: "plus.circle")}
             }
+                
+                ToolbarItem {
+                    Button {deleteDesign(offsets: IndexSet(integer: 0))}
+                label: {Label("Delete", systemImage: "trash.circle")}
+                }
+                
         }
             .sheet(isPresented: $showingAddView) {
                 AddDesignView()
@@ -74,10 +71,16 @@ struct ContentView: View {
             DataController().save(context: managedObjectContext)
         }
     }
+    
+    func deleteDesign(design: Design) {
+        managedObjectContext.delete(design)
+        DataController().save(context: managedObjectContext)
+    }
+        
 }
     
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
-            ContentView()
+            HomeView()
         }
     }

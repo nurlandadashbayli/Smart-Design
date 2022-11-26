@@ -23,16 +23,11 @@ struct AddDesignView: View {
                 
                 VStack {
                     
-                   // Text("Room Width: \(String(roomWidth))")
                     TextField("Room Width:", text: $roomWidth)
-                    
-                    //Slider(value: $roomWidth, in: 0...100)
+
                     TextField("Room Depth:", text: $roomDepth)
-                   // Text("Room Depth: \(String(roomDepth))")
-                    
-                    
+       
                     TextField("Screen Diagonal:", text: $screenDiagonal)
-                    //Slider(value: $roomDepth, in: 0...100)
                     
                     //Text("Screen Diagonal: \(Double(screenDiagonal))")
                     //Slider(value: $screenDiagonal, in: 0...500)
@@ -41,8 +36,9 @@ struct AddDesignView: View {
                 .padding()
                 
                 HStack {
+                    Button("Cancel") { dismiss() }
                     Spacer()
-                    Button("Submit") {
+                    Button("Add") {
                         DataController()
                             .addDesign(
                                 title: title,
@@ -52,10 +48,14 @@ struct AddDesignView: View {
                                 context: managedObjectContext)
                             dismiss()
                     }
+                    .disabled(roomWidth.isEmpty)
+                    .disabled(roomDepth.isEmpty)
                     .padding(.all)
                 }
             }
-        }.padding(.all)
+        }
+        .padding(.all)
+        .frame(width: 600, height: 400)
     }
 }
 

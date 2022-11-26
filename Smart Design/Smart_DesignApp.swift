@@ -14,7 +14,7 @@ struct Smart_DesignApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
                 .environment(\.managedObjectContext, dataController.container.viewContext)
         }
     }
