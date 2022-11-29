@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		540024F92932DB0E005CDA3B /* RoomScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 540024F82932DB0E005CDA3B /* RoomScene.scn */; };
+		544FE12A293415FA009BE103 /* ThreeDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544FE129293415FA009BE103 /* ThreeDView.swift */; };
+		544FE12E29341BD6009BE103 /* Sword.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 544FE12D29341BD6009BE103 /* Sword.scnassets */; };
+		544FE130293423F7009BE103 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544FE12F293423F7009BE103 /* ListView.swift */; };
+		544FE13229342BA0009BE103 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544FE13129342BA0009BE103 /* TableView.swift */; };
 		54D8F9472926E4830008489B /* Smart_DesignApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F9462926E4830008489B /* Smart_DesignApp.swift */; };
 		54D8F9492926E4830008489B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F9482926E4830008489B /* HomeView.swift */; };
 		54D8F94B2926E4850008489B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54D8F94A2926E4850008489B /* Assets.xcassets */; };
@@ -16,10 +21,14 @@
 		54D8F95F2926EE410008489B /* AddDesignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F95E2926EE410008489B /* AddDesignView.swift */; };
 		54D8F96429270FA50008489B /* EditDesignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F96329270FA50008489B /* EditDesignView.swift */; };
 		54D8F979292C588C0008489B /* CalculationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F978292C588C0008489B /* CalculationFunctions.swift */; };
-		54D8FA1F2930376D0008489B /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8FA1E2930376D0008489B /* ListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		540024F82932DB0E005CDA3B /* RoomScene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = RoomScene.scn; sourceTree = "<group>"; };
+		544FE129293415FA009BE103 /* ThreeDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeDView.swift; sourceTree = "<group>"; };
+		544FE12D29341BD6009BE103 /* Sword.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Sword.scnassets; sourceTree = "<group>"; };
+		544FE12F293423F7009BE103 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		544FE13129342BA0009BE103 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		54D8F9432926E4830008489B /* Smart Design.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Design.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54D8F9462926E4830008489B /* Smart_DesignApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Smart_DesignApp.swift; sourceTree = "<group>"; };
 		54D8F9482926E4830008489B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -31,7 +40,6 @@
 		54D8F95E2926EE410008489B /* AddDesignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDesignView.swift; sourceTree = "<group>"; };
 		54D8F96329270FA50008489B /* EditDesignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDesignView.swift; sourceTree = "<group>"; };
 		54D8F978292C588C0008489B /* CalculationFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationFunctions.swift; sourceTree = "<group>"; };
-		54D8FA1E2930376D0008489B /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,11 +53,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		544FE12B29341B4A009BE103 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				540024F82932DB0E005CDA3B /* RoomScene.scn */,
+				544FE12D29341BD6009BE103 /* Sword.scnassets */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		54D172222933F66400FA340C /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				54D8F9482926E4830008489B /* HomeView.swift */,
+				544FE129293415FA009BE103 /* ThreeDView.swift */,
+				544FE13129342BA0009BE103 /* TableView.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 		54D8F93A2926E4830008489B = {
 			isa = PBXGroup;
 			children = (
-				54D8F9602926F4180008489B /* Helpers */,
+				54D8F9462926E4830008489B /* Smart_DesignApp.swift */,
+				54D172222933F66400FA340C /* Navigation */,
 				54D8F95B2926EDF20008489B /* Views */,
+				544FE12B29341B4A009BE103 /* Scene */,
+				54D8F9602926F4180008489B /* Helpers */,
 				54D8F9552926E68A0008489B /* Data Model */,
 				54D8F9452926E4830008489B /* Smart Design */,
 				54D8F9442926E4830008489B /* Products */,
@@ -68,7 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				54D8F94F2926E4850008489B /* Smart_Design.entitlements */,
-				54D8F9462926E4830008489B /* Smart_DesignApp.swift */,
 				54D8F94A2926E4850008489B /* Assets.xcassets */,
 				54D8F94C2926E4850008489B /* Preview Content */,
 			);
@@ -95,10 +124,9 @@
 		54D8F95B2926EDF20008489B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				54D8F9482926E4830008489B /* HomeView.swift */,
 				54D8F95E2926EE410008489B /* AddDesignView.swift */,
 				54D8F96329270FA50008489B /* EditDesignView.swift */,
-				54D8FA1E2930376D0008489B /* ListView.swift */,
+				544FE12F293423F7009BE103 /* ListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -171,6 +199,8 @@
 			files = (
 				54D8F94E2926E4850008489B /* Preview Assets.xcassets in Resources */,
 				54D8F94B2926E4850008489B /* Assets.xcassets in Resources */,
+				540024F92932DB0E005CDA3B /* RoomScene.scn in Resources */,
+				544FE12E29341BD6009BE103 /* Sword.scnassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,7 +211,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54D8FA1F2930376D0008489B /* ListView.swift in Sources */,
+				544FE12A293415FA009BE103 /* ThreeDView.swift in Sources */,
+				544FE13229342BA0009BE103 /* TableView.swift in Sources */,
 				54D8F9582926E6C30008489B /* DesignModel.xcdatamodeld in Sources */,
 				54D8F95A2926E7F50008489B /* DataController.swift in Sources */,
 				54D8F9492926E4830008489B /* HomeView.swift in Sources */,
@@ -189,6 +220,7 @@
 				54D8F95F2926EE410008489B /* AddDesignView.swift in Sources */,
 				54D8F979292C588C0008489B /* CalculationFunctions.swift in Sources */,
 				54D8F9472926E4830008489B /* Smart_DesignApp.swift in Sources */,
+				544FE130293423F7009BE103 /* ListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

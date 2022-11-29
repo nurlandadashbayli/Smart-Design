@@ -10,8 +10,9 @@ import SwiftUI
 @main
 struct Smart_DesignApp: App {
     
-    @StateObject private var dataController = DataController()
     
+    @StateObject private var dataController = DataController()
+
     var body: some Scene {
         WindowGroup {
             HomeView()
