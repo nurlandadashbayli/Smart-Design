@@ -45,7 +45,7 @@ struct ListView: View {
                  }
                  .onDelete(perform: deleteDesign)
              }
-             .listStyle(.sidebar)
+             .listStyle(.plain)
             
         }
          .toolbar {

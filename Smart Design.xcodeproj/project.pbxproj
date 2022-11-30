@@ -9,9 +9,8 @@
 /* Begin PBXBuildFile section */
 		540024F92932DB0E005CDA3B /* RoomScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 540024F82932DB0E005CDA3B /* RoomScene.scn */; };
 		544FE12A293415FA009BE103 /* ThreeDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544FE129293415FA009BE103 /* ThreeDView.swift */; };
-		544FE12E29341BD6009BE103 /* Sword.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 544FE12D29341BD6009BE103 /* Sword.scnassets */; };
 		544FE130293423F7009BE103 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544FE12F293423F7009BE103 /* ListView.swift */; };
-		544FE13229342BA0009BE103 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544FE13129342BA0009BE103 /* TableView.swift */; };
+		544FE13229342BA0009BE103 /* ScreenWall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544FE13129342BA0009BE103 /* ScreenWall.swift */; };
 		54D8F9472926E4830008489B /* Smart_DesignApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F9462926E4830008489B /* Smart_DesignApp.swift */; };
 		54D8F9492926E4830008489B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F9482926E4830008489B /* HomeView.swift */; };
 		54D8F94B2926E4850008489B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54D8F94A2926E4850008489B /* Assets.xcassets */; };
@@ -26,9 +25,8 @@
 /* Begin PBXFileReference section */
 		540024F82932DB0E005CDA3B /* RoomScene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = RoomScene.scn; sourceTree = "<group>"; };
 		544FE129293415FA009BE103 /* ThreeDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeDView.swift; sourceTree = "<group>"; };
-		544FE12D29341BD6009BE103 /* Sword.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Sword.scnassets; sourceTree = "<group>"; };
 		544FE12F293423F7009BE103 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
-		544FE13129342BA0009BE103 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		544FE13129342BA0009BE103 /* ScreenWall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenWall.swift; sourceTree = "<group>"; };
 		54D8F9432926E4830008489B /* Smart Design.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Design.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54D8F9462926E4830008489B /* Smart_DesignApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Smart_DesignApp.swift; sourceTree = "<group>"; };
 		54D8F9482926E4830008489B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -57,7 +55,6 @@
 			isa = PBXGroup;
 			children = (
 				540024F82932DB0E005CDA3B /* RoomScene.scn */,
-				544FE12D29341BD6009BE103 /* Sword.scnassets */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -67,7 +64,7 @@
 			children = (
 				54D8F9482926E4830008489B /* HomeView.swift */,
 				544FE129293415FA009BE103 /* ThreeDView.swift */,
-				544FE13129342BA0009BE103 /* TableView.swift */,
+				544FE13129342BA0009BE103 /* ScreenWall.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -200,7 +197,6 @@
 				54D8F94E2926E4850008489B /* Preview Assets.xcassets in Resources */,
 				54D8F94B2926E4850008489B /* Assets.xcassets in Resources */,
 				540024F92932DB0E005CDA3B /* RoomScene.scn in Resources */,
-				544FE12E29341BD6009BE103 /* Sword.scnassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,7 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				544FE12A293415FA009BE103 /* ThreeDView.swift in Sources */,
-				544FE13229342BA0009BE103 /* TableView.swift in Sources */,
+				544FE13229342BA0009BE103 /* ScreenWall.swift in Sources */,
 				54D8F9582926E6C30008489B /* DesignModel.xcdatamodeld in Sources */,
 				54D8F95A2926E7F50008489B /* DataController.swift in Sources */,
 				54D8F9492926E4830008489B /* HomeView.swift in Sources */,

@@ -1,16 +1,29 @@
 import Foundation
 
-var screenDiagonal: Double = 120 // inches
+
 var roomWidth: Double = 6
 var roomDepth: Double = 8
 var screenWidth = calculateScreenWidth()
-
+var screenWall = roomWidth
+var screenDiagonal = calculateScreenDiagonal()// inches
 
 
 func youcalculateArea() -> Double {
     let area = roomWidth*roomDepth
     return area
 }
+
+// Calculate Screen Diagonal based on the chosen wall for the Screen
+func calculateScreenDiagonal() -> Double {
+    var screenDiagonal: Double = 120
+    while screenWall < 3.657 {
+        screenDiagonal -= 5
+        screenWall += 0.111
+    }
+    return screenDiagonal
+}
+
+
 
 
 // Calculate the screen width based on the screen diagonal

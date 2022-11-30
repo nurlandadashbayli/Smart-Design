@@ -12,6 +12,11 @@ var scene = SCNScene(named: "RoomScene.scn")
 var cameraNode: SCNNode? {
     scene?.rootNode.childNode(withName: "camera", recursively: false)
 }
+var screen = scene?.rootNode.childNode(withName: "camera", recursively: false)
+
+
+
+
 
 struct ThreeDView: View {
     var body: some View {

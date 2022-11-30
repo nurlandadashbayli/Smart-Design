@@ -17,42 +17,62 @@ struct EditDesignView: View {
     @State private var title = ""
     @State private var area: Double = 0
     @State private var people: Double = 0
-    @State private var roomWidth: Double = 0
-    @State private var roomDepth: Double = 0
+    @State private var roomWidth: String = ""
+    @State private var roomDepth: String = ""
+    @State private var screenDiagonal: String = ""
 
     var body: some View {
 
-        Form {
+        Form { 
             Section {
-                TextField("\(design.title!)", text: $title)
-                // to show the current values
-                    .onAppear {
-                        title = design.title!
-                        area = design.area
-                    }
-
                 VStack {
-                    VStack {
-                        Text("Room Depth: \(Int(roomDepth))")
-                        Slider(value: $roomDepth, in: 0...1000)
+                    
+                    TextField("Name:", text: $title)
+                    
+                    TextField("Room Width:", text: $roomWidth, prompt: Text("\(design.roomWidth)"))
 
-                        Text("Room Width: \(Int(roomWidth))")
-                        Slider(value: $roomWidth, in: 0...1000)
+                    TextField("Room Depth:", text: $roomDepth, prompt: Text("\(design.roomDepth)"))
+
+                    TextField("Screen Diagonal:", text: $screenDiagonal, prompt: Text("\(design.screenDiagonal)"))
+                    
+                    // Insert the value of the screen diagonal from the database here for the selected design
+                    .onAppear() {
+                        title = design.title!
+                        roomDepth = String(design.roomDepth)
+                        roomWidth = String(design.roomWidth)
+                        screenDiagonal = String(design.screenDiagonal)
                     }
+
+                    // Update the values according to the next selected design
+                    .onChange(of: design) { design in
+                        title = design.title!
+                        roomDepth = String(design.roomDepth)
+                        roomWidth = String(design.roomWidth)
+                        screenDiagonal = String(design.screenDiagonal)
+                    }
+
+
+                 
+
+
+                    
+                    
                 }
+                
                 .padding()
 
                 HStack {
                     Spacer()
                     Button("Submit") {
-                        DataController().editDesign(design: design, title: title,
+                        DataController().editDesign(design: design,
+                                                    title: title,
                                                     roomDepth: roomDepth,
                                                     roomWidth: roomWidth,
+                                                    screenDiagonal: screenDiagonal,
                                                     area: area,
                                                     people: people,
                                                     context: managedObjectContext)
                                                 dismiss()
-                       // dismiss()
                     }
                     .padding(.all)
                 }
