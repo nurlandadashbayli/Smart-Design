@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ScreenWall: View {
+struct ScreenWallView: View {
     
     @Binding var screenWall: String
       var body: some View {
@@ -27,8 +27,8 @@ struct ScreenWall: View {
       }
     }
 
-struct ScreenWall_Previews: PreviewProvider {
+struct ScreenWallView_Previews: PreviewProvider {
     static var previews: some View {
-        ScreenWall(screenWall: .constant(""))
+        ScreenWallView(screenWall: .constant(""))
     }
 }

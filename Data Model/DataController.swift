@@ -46,51 +46,15 @@ class DataController: ObservableObject {
         save(context: context)
     }
     
-    func editDesign(design: Design, title: String, roomDepth: String, roomWidth: String, screenDiagonal: String, area: Double, people: Double, context: NSManagedObjectContext) {
-
-        // Get the  values from AddDesign function if the user doesn't enter anything
-        if title == "" {
-            design.title = design.title
-        }
-        else {
-            design.title = title
-        } 
-        if roomDepth == "" {
-            design.roomDepth = design.roomDepth
-        }
-        else {
-            design.roomDepth = Double(roomDepth)!
-        }
-        if roomWidth == "" {
-            design.roomWidth = design.roomWidth
-        }
-        else {
-            design.roomWidth = Double(roomWidth)!
-        }
-        if screenDiagonal == "" {
-            design.screenDiagonal = design.screenDiagonal
-        }
-        else {
-            design.screenDiagonal = Double(screenDiagonal)!
-        }
-        
-        
-        if roomDepth=="", roomWidth=="" {
-            design.area = design.roomWidth * design.roomDepth
-        }
-        else {
-            design.area = Double(roomWidth)! * Double(roomDepth)!
-        }
-        
-
-
+    func editDesign(design: Design, title: String, roomDepth: String, roomWidth: String, screenDiagonal: String, area: String, people: String, context: NSManagedObjectContext) {
 
         design.date = Date()
-       // design.title = title
-       // design.roomDepth = Double(roomDepth)!
-        //design.roomWidth = Double(roomWidth)!
-       // design.area = Double(roomWidth)! * Double(roomDepth)!
-       // design.screenDiagonal = Double(screenDiagonal)!
+        design.title = title
+        design.roomDepth = Double(roomDepth)!
+        design.roomWidth = Double(roomWidth)!
+        design.area = Double(roomWidth)! * Double(roomDepth)!
+        design.screenDiagonal = Double(screenDiagonal)!
+        design.people = Double(people)!
         
         save(context: context)
     }
