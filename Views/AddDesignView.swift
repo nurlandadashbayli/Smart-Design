@@ -15,7 +15,7 @@ struct AddDesignView: View {
     @State private var title = ""
     @State private var roomWidth: String = ""
     @State private var roomDepth: String = ""
-    @State private var screenDiagonal: String = ""
+   // @State private var screenDiagonal: String = ""
     var body: some View {
         Form {
             Section {
@@ -27,10 +27,7 @@ struct AddDesignView: View {
 
                     TextField("Room Depth:", text: $roomDepth)
        
-                    TextField("Screen Diagonal:", text: $screenDiagonal)
-                    
-                    //Text("Screen Diagonal: \(Double(screenDiagonal))")
-                    //Slider(value: $screenDiagonal, in: 0...500)
+                   // TextField("Screen Diagonal:", text: $screenDiagonal)
                     
                 }
                 .padding()
@@ -44,7 +41,6 @@ struct AddDesignView: View {
                                 title: title,
                                 roomDepth: roomDepth,
                                 roomWidth: roomWidth,
-                                screenDiagonal: screenDiagonal,
                                 context: managedObjectContext)
                             dismiss()
                     }

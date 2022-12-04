@@ -19,6 +19,7 @@ struct EditDesignView: View {
     @State private var roomWidth: String = ""
     @State private var roomDepth: String = ""
     @State private var screenDiagonal: String = ""
+    @State private var screenWall: String = ""
 
     var body: some View {
 
@@ -42,6 +43,17 @@ struct EditDesignView: View {
                         TextField("", text: $screenDiagonal, prompt: Text("\(design.screenDiagonal)"))
                     }.padding()
                     VStack(alignment: .leading) {
+                        Text("   Screen position:")
+                        Picker(selection: $screenWall, label: Text("")) {
+                            Text("Front").tag("Front")
+                            Text("Back").tag("Back")
+                            Text("Left").tag("Left")
+                            Text("Right").tag("Right")
+                        }
+                        .pickerStyle(SegmentedPickerStyle())
+                    }.padding()
+                    
+                    VStack(alignment: .leading) {
                         Text("   Area:")
                         TextField("", text: $area, prompt: Text("\(design.area)"))
                     }.padding()
@@ -58,6 +70,7 @@ struct EditDesignView: View {
                         title = design.title!
                         roomDepth = String(design.roomDepth)
                         roomWidth = String(design.roomWidth)
+                        screenWall = design.screenWall!
                         area = String(design.area)
                         screenDiagonal = String(design.screenDiagonal)
                         people = String(format: "%.0f", design.people)
@@ -67,6 +80,7 @@ struct EditDesignView: View {
                         title = design.title!
                         roomDepth = String(design.roomDepth)
                         roomWidth = String(design.roomWidth)
+                        screenWall = design.screenWall!
                         area = String(design.area)
                         screenDiagonal = String(design.screenDiagonal)
                         people = String(format: "%.0f", design.people)
@@ -77,7 +91,12 @@ struct EditDesignView: View {
                 HStack {
                     Spacer()
                     Button("Submit") {
-                        DataController().editDesign(design: design, title: title, roomDepth: roomDepth, roomWidth: roomWidth, screenDiagonal: screenDiagonal, area: area, people: people, context: managedObjectContext)
+                        
+                        DataController().editDesign(design: design, title: title, roomDepth: roomDepth, roomWidth: roomWidth, screenDiagonal: screenDiagonal, area: area, people: people, screenWall: screenWall, context: managedObjectContext)
+                        // update all text field values
+                        screenDiagonal = String(design.screenDiagonal)
+                        area = String(design.area)
+                        people = String(format: "%.0f", design.people)
                     }
                     .padding(.all)
                 }

@@ -21,8 +21,7 @@ struct ListView: View {
         VStack(alignment: .leading) {
             List {
                 ForEach(design) { design in
-                    NavigationLink(destination: EditDesignView(design: design)) //EditDesignView(design: design))
-                    {
+                    NavigationLink(destination: EditDesignView(design: design)) {
                         HStack {
                             VStack(alignment: .leading, spacing: 6) {
                                 Text(design.title!)
