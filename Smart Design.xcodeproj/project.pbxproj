@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		540024F92932DB0E005CDA3B /* RoomScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 540024F82932DB0E005CDA3B /* RoomScene.scn */; };
+		540EB4F0293E8F1A00932224 /* Calculator_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540EB4EF293E8F1A00932224 /* Calculator_Tests.swift */; };
+		540EB4F6293E902200932224 /* Calculators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F978292C588C0008489B /* Calculators.swift */; };
+		540EB550293FFC6700932224 /* Smart_DesignApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F9462926E4830008489B /* Smart_DesignApp.swift */; };
+		5417D7C029400625009CA2EC /* Smart_DesignUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5417D7B329400353009CA2EC /* Smart_DesignUITests.swift */; };
 		5446CD192938101100EA3D96 /* SceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5446CD182938101100EA3D96 /* SceneController.swift */; };
-		5446CD222939745700EA3D96 /* Smart_DesignTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5446CD212939745700EA3D96 /* Smart_DesignTests.swift */; };
 		544FE12A293415FA009BE103 /* ThreeDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544FE129293415FA009BE103 /* ThreeDView.swift */; };
 		544FE130293423F7009BE103 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544FE12F293423F7009BE103 /* ListView.swift */; };
 		544FE13229342BA0009BE103 /* ScreenWallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544FE13129342BA0009BE103 /* ScreenWallView.swift */; };
-		54C63409293C1E2B005D4A4C /* addDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C63408293C1E2B005D4A4C /* addDesign.swift */; };
-		54D8F9472926E4830008489B /* Smart_DesignApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F9462926E4830008489B /* Smart_DesignApp.swift */; };
 		54D8F9492926E4830008489B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F9482926E4830008489B /* HomeView.swift */; };
 		54D8F94B2926E4850008489B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54D8F94A2926E4850008489B /* Assets.xcassets */; };
 		54D8F94E2926E4850008489B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54D8F94D2926E4850008489B /* Preview Assets.xcassets */; };
@@ -22,11 +23,18 @@
 		54D8F95A2926E7F50008489B /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F9592926E7F50008489B /* DataController.swift */; };
 		54D8F95F2926EE410008489B /* AddDesignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F95E2926EE410008489B /* AddDesignView.swift */; };
 		54D8F96429270FA50008489B /* EditDesignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F96329270FA50008489B /* EditDesignView.swift */; };
-		54D8F979292C588C0008489B /* CalculationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F978292C588C0008489B /* CalculationFunctions.swift */; };
+		54D8F979292C588C0008489B /* Calculators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F978292C588C0008489B /* Calculators.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5446CD232939745700EA3D96 /* PBXContainerItemProxy */ = {
+		540EB4F1293E8F1A00932224 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54D8F93B2926E4830008489B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 54D8F9422926E4830008489B;
+			remoteInfo = "Smart Design";
+		};
+		5417D7B729400353009CA2EC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 54D8F93B2926E4830008489B /* Project object */;
 			proxyType = 1;
@@ -37,13 +45,14 @@
 
 /* Begin PBXFileReference section */
 		540024F82932DB0E005CDA3B /* RoomScene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = RoomScene.scn; sourceTree = "<group>"; };
+		540EB4ED293E8F1A00932224 /* Smart DesignTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Smart DesignTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		540EB4EF293E8F1A00932224 /* Calculator_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator_Tests.swift; sourceTree = "<group>"; };
+		5417D7B129400353009CA2EC /* Smart DesignUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Smart DesignUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5417D7B329400353009CA2EC /* Smart_DesignUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Smart_DesignUITests.swift; sourceTree = "<group>"; };
 		5446CD182938101100EA3D96 /* SceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneController.swift; sourceTree = "<group>"; };
-		5446CD1F2939745700EA3D96 /* Smart DesignTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Smart DesignTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5446CD212939745700EA3D96 /* Smart_DesignTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Smart_DesignTests.swift; sourceTree = "<group>"; };
 		544FE129293415FA009BE103 /* ThreeDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeDView.swift; sourceTree = "<group>"; };
 		544FE12F293423F7009BE103 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		544FE13129342BA0009BE103 /* ScreenWallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenWallView.swift; sourceTree = "<group>"; };
-		54C63408293C1E2B005D4A4C /* addDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addDesign.swift; sourceTree = "<group>"; };
 		54D8F9432926E4830008489B /* Smart Design.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Design.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54D8F9462926E4830008489B /* Smart_DesignApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Smart_DesignApp.swift; sourceTree = "<group>"; };
 		54D8F9482926E4830008489B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -53,12 +62,19 @@
 		54D8F9572926E6C30008489B /* DesignModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DesignModel.xcdatamodel; sourceTree = "<group>"; };
 		54D8F9592926E7F50008489B /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		54D8F95E2926EE410008489B /* AddDesignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDesignView.swift; sourceTree = "<group>"; };
-		54D8F96329270FA50008489B /* EditDesignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDesignView.swift; sourceTree = "<group>"; };
-		54D8F978292C588C0008489B /* CalculationFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationFunctions.swift; sourceTree = "<group>"; };
+		54D8F96329270FA50008489B /* EditDesignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDesignView.swift; sourceTree = "<group>"; tabWidth = 4; };
+		54D8F978292C588C0008489B /* Calculators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculators.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5446CD1C2939745700EA3D96 /* Frameworks */ = {
+		540EB4EA293E8F1A00932224 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5417D7AE29400353009CA2EC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -75,12 +91,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5446CD202939745700EA3D96 /* Smart DesignTests */ = {
+		540EB4EE293E8F1A00932224 /* Smart DesignTests */ = {
 			isa = PBXGroup;
 			children = (
-				5446CD212939745700EA3D96 /* Smart_DesignTests.swift */,
+				540EB4EF293E8F1A00932224 /* Calculator_Tests.swift */,
 			);
 			path = "Smart DesignTests";
+			sourceTree = "<group>";
+		};
+		5417D7B229400353009CA2EC /* Smart DesignUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5417D7B329400353009CA2EC /* Smart_DesignUITests.swift */,
+			);
+			path = "Smart DesignUITests";
 			sourceTree = "<group>";
 		};
 		544FE12B29341B4A009BE103 /* Scene */ = {
@@ -112,7 +136,8 @@
 				544FE12B29341B4A009BE103 /* Scene */,
 				54D8F9552926E68A0008489B /* Data Model */,
 				54D8F9452926E4830008489B /* Smart Design */,
-				5446CD202939745700EA3D96 /* Smart DesignTests */,
+				540EB4EE293E8F1A00932224 /* Smart DesignTests */,
+				5417D7B229400353009CA2EC /* Smart DesignUITests */,
 				54D8F9442926E4830008489B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -121,7 +146,8 @@
 			isa = PBXGroup;
 			children = (
 				54D8F9432926E4830008489B /* Smart Design.app */,
-				5446CD1F2939745700EA3D96 /* Smart DesignTests.xctest */,
+				540EB4ED293E8F1A00932224 /* Smart DesignTests.xctest */,
+				5417D7B129400353009CA2EC /* Smart DesignUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -166,8 +192,7 @@
 		54D8F9602926F4180008489B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				54D8F978292C588C0008489B /* CalculationFunctions.swift */,
-				54C63408293C1E2B005D4A4C /* addDesign.swift */,
+				54D8F978292C588C0008489B /* Calculators.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -175,23 +200,41 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5446CD1E2939745700EA3D96 /* Smart DesignTests */ = {
+		540EB4EC293E8F1A00932224 /* Smart DesignTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5446CD252939745700EA3D96 /* Build configuration list for PBXNativeTarget "Smart DesignTests" */;
+			buildConfigurationList = 540EB4F3293E8F1A00932224 /* Build configuration list for PBXNativeTarget "Smart DesignTests" */;
 			buildPhases = (
-				5446CD1B2939745700EA3D96 /* Sources */,
-				5446CD1C2939745700EA3D96 /* Frameworks */,
-				5446CD1D2939745700EA3D96 /* Resources */,
+				540EB4E9293E8F1A00932224 /* Sources */,
+				540EB4EA293E8F1A00932224 /* Frameworks */,
+				540EB4EB293E8F1A00932224 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				5446CD242939745700EA3D96 /* PBXTargetDependency */,
+				540EB4F2293E8F1A00932224 /* PBXTargetDependency */,
 			);
 			name = "Smart DesignTests";
 			productName = "Smart DesignTests";
-			productReference = 5446CD1F2939745700EA3D96 /* Smart DesignTests.xctest */;
+			productReference = 540EB4ED293E8F1A00932224 /* Smart DesignTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5417D7B029400353009CA2EC /* Smart DesignUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5417D7BB29400353009CA2EC /* Build configuration list for PBXNativeTarget "Smart DesignUITests" */;
+			buildPhases = (
+				5417D7AD29400353009CA2EC /* Sources */,
+				5417D7AE29400353009CA2EC /* Frameworks */,
+				5417D7AF29400353009CA2EC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5417D7B829400353009CA2EC /* PBXTargetDependency */,
+			);
+			name = "Smart DesignUITests";
+			productName = "Smart DesignUITests";
+			productReference = 5417D7B129400353009CA2EC /* Smart DesignUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		54D8F9422926E4830008489B /* Smart Design */ = {
 			isa = PBXNativeTarget;
@@ -220,7 +263,11 @@
 				LastSwiftUpdateCheck = 1410;
 				LastUpgradeCheck = 1410;
 				TargetAttributes = {
-					5446CD1E2939745700EA3D96 = {
+					540EB4EC293E8F1A00932224 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = 54D8F9422926E4830008489B;
+					};
+					5417D7B029400353009CA2EC = {
 						CreatedOnToolsVersion = 14.1;
 						TestTargetID = 54D8F9422926E4830008489B;
 					};
@@ -243,13 +290,21 @@
 			projectRoot = "";
 			targets = (
 				54D8F9422926E4830008489B /* Smart Design */,
-				5446CD1E2939745700EA3D96 /* Smart DesignTests */,
+				540EB4EC293E8F1A00932224 /* Smart DesignTests */,
+				5417D7B029400353009CA2EC /* Smart DesignUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		5446CD1D2939745700EA3D96 /* Resources */ = {
+		540EB4EB293E8F1A00932224 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5417D7AF29400353009CA2EC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -269,11 +324,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5446CD1B2939745700EA3D96 /* Sources */ = {
+		540EB4E9293E8F1A00932224 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5446CD222939745700EA3D96 /* Smart_DesignTests.swift in Sources */,
+				540EB4F0293E8F1A00932224 /* Calculator_Tests.swift in Sources */,
+				540EB4F6293E902200932224 /* Calculators.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5417D7AD29400353009CA2EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5417D7C029400625009CA2EC /* Smart_DesignUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,12 +350,11 @@
 				5446CD192938101100EA3D96 /* SceneController.swift in Sources */,
 				54D8F9582926E6C30008489B /* DesignModel.xcdatamodeld in Sources */,
 				54D8F95A2926E7F50008489B /* DataController.swift in Sources */,
-				54C63409293C1E2B005D4A4C /* addDesign.swift in Sources */,
+				540EB550293FFC6700932224 /* Smart_DesignApp.swift in Sources */,
 				54D8F9492926E4830008489B /* HomeView.swift in Sources */,
 				54D8F96429270FA50008489B /* EditDesignView.swift in Sources */,
 				54D8F95F2926EE410008489B /* AddDesignView.swift in Sources */,
-				54D8F979292C588C0008489B /* CalculationFunctions.swift in Sources */,
-				54D8F9472926E4830008489B /* Smart_DesignApp.swift in Sources */,
+				54D8F979292C588C0008489B /* Calculators.swift in Sources */,
 				544FE130293423F7009BE103 /* ListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,15 +362,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5446CD242939745700EA3D96 /* PBXTargetDependency */ = {
+		540EB4F2293E8F1A00932224 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 54D8F9422926E4830008489B /* Smart Design */;
-			targetProxy = 5446CD232939745700EA3D96 /* PBXContainerItemProxy */;
+			targetProxy = 540EB4F1293E8F1A00932224 /* PBXContainerItemProxy */;
+		};
+		5417D7B829400353009CA2EC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 54D8F9422926E4830008489B /* Smart Design */;
+			targetProxy = 5417D7B729400353009CA2EC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		5446CD262939745700EA3D96 /* Debug */ = {
+		540EB4F4293E8F1A00932224 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -315,19 +383,16 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RJDR787N69;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "NurlanDadashbayli.Smart-DesignTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Smart Design.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Smart Design";
 			};
 			name = Debug;
 		};
-		5446CD272939745700EA3D96 /* Release */ = {
+		540EB4F5293E8F1A00932224 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -335,16 +400,44 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RJDR787N69;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "NurlanDadashbayli.Smart-DesignTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Smart Design.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Smart Design";
-				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5417D7B929400353009CA2EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RJDR787N69;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "NurlanDadashbayli.Smart-DesignUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Smart Design";
+			};
+			name = Debug;
+		};
+		5417D7BA29400353009CA2EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RJDR787N69;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "NurlanDadashbayli.Smart-DesignUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Smart Design";
 			};
 			name = Release;
 		};
@@ -467,6 +560,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Smart Design/Smart_Design.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -526,11 +620,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5446CD252939745700EA3D96 /* Build configuration list for PBXNativeTarget "Smart DesignTests" */ = {
+		540EB4F3293E8F1A00932224 /* Build configuration list for PBXNativeTarget "Smart DesignTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5446CD262939745700EA3D96 /* Debug */,
-				5446CD272939745700EA3D96 /* Release */,
+				540EB4F4293E8F1A00932224 /* Debug */,
+				540EB4F5293E8F1A00932224 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5417D7BB29400353009CA2EC /* Build configuration list for PBXNativeTarget "Smart DesignUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5417D7B929400353009CA2EC /* Debug */,
+				5417D7BA29400353009CA2EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

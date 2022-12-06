@@ -31,6 +31,7 @@ struct ListView: View {
                     }
                 }
                 .onDelete(perform: deleteDesign)
+                
             }
             
         }

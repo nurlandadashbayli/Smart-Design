@@ -20,30 +20,37 @@ struct EditDesignView: View {
     @State private var roomDepth: String = ""
     @State private var screenDiagonal: String = ""
     @State private var screenWall: String = ""
+    @State private var lamps: String = ""
 
     var body: some View {
 
         Form { 
-            Section {
                 VStack {
                     VStack(alignment: .leading) {
                         Text("   Name:")
+                            .fontWeight(.bold)
                         TextField("",text: $title)
-                    }.padding()
-                    VStack(alignment: .leading) {
-                        Text("   Room Width:")
-                        TextField("", text: $roomWidth, prompt: Text("\(design.roomWidth)"))
-                    }.padding()
-                    VStack(alignment: .leading) {
-                        Text("   Room Depth:")
-                        TextField("", text: $roomDepth, prompt: Text("\(design.roomDepth)"))
-                    }.padding()
+                    }.padding(.bottom, 10.0)
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("   Room Width:")
+                                .fontWeight(.bold)
+                            TextField("", text: $roomWidth, prompt: Text("\(design.roomWidth)"))
+                        }.padding(.bottom, 10.0)
+                        VStack(alignment: .leading) {
+                            Text("   Room Depth:")
+                                .fontWeight(.bold)
+                            TextField("", text: $roomDepth, prompt: Text("\(design.roomDepth)"))
+                        }.padding(.bottom, 10.0)
+                    }
                     VStack(alignment: .leading) {
                         Text("   Screen Diagonal:")
+                            .fontWeight(.bold)
                         TextField("", text: $screenDiagonal, prompt: Text("\(design.screenDiagonal)"))
-                    }.padding()
+                    }.padding(.bottom, 10.0)
                     VStack(alignment: .leading) {
                         Text("   Screen position:")
+                            .fontWeight(.bold)
                         Picker(selection: $screenWall, label: Text("")) {
                             Text("Front").tag("Front")
                             Text("Back").tag("Back")
@@ -51,17 +58,23 @@ struct EditDesignView: View {
                             Text("Right").tag("Right")
                         }
                         .pickerStyle(SegmentedPickerStyle())
-                    }.padding()
+                    }.padding(.bottom, 10.0)
                     
                     VStack(alignment: .leading) {
                         Text("   Area:")
+                            .fontWeight(.bold)
                         TextField("", text: $area, prompt: Text("\(design.area)"))
-                    }.padding()
+                    }.padding(.bottom, 10.0)
                     VStack(alignment: .leading) {
                         Text("   Number of people:")
+                            .fontWeight(.bold)
                         TextField("", text: $people, prompt: Text("\(design.people)"))
-                    }.padding()
-                    
+                    }.padding(.bottom, 10.0)
+                    VStack(alignment: .leading) {
+                        Text("   Number of lamps:")
+                            .fontWeight(.bold)
+                        TextField("", text: $lamps, prompt: Text("\(design.lamps)"))
+                    }.padding(.bottom, 10.0)
                     
                     
                     
@@ -73,8 +86,10 @@ struct EditDesignView: View {
                         screenWall = design.screenWall!
                         area = String(design.area)
                         screenDiagonal = String(design.screenDiagonal)
-                        people = String(format: "%.0f", design.people)
+                        people = String(format: "%.f", design.people)
+                        lamps = String(format: "%.f", design.lamps)
                     }
+                    
                     // Update the values according to the next selected design
                     .onChange(of: design) { design in
                         title = design.title!
@@ -83,7 +98,8 @@ struct EditDesignView: View {
                         screenWall = design.screenWall!
                         area = String(design.area)
                         screenDiagonal = String(design.screenDiagonal)
-                        people = String(format: "%.0f", design.people)
+                        people = String(format: "%.f", design.people)
+                        lamps = String(format: "%.f", design.lamps)
                     }
                 }
                 .padding()
@@ -92,15 +108,16 @@ struct EditDesignView: View {
                     Spacer()
                     Button("Submit") {
                         
-                        DataController().editDesign(design: design, title: title, roomDepth: roomDepth, roomWidth: roomWidth, screenDiagonal: screenDiagonal, area: area, people: people, screenWall: screenWall, context: managedObjectContext)
+                        DataController().editDesign(design: design, title: title, roomDepth: roomDepth, roomWidth: roomWidth, screenDiagonal: screenDiagonal, area: area, people: people, lamps: lamps, screenWall: screenWall, context: managedObjectContext)
                         // update all text field values
                         screenDiagonal = String(design.screenDiagonal)
                         area = String(design.area)
-                        people = String(format: "%.0f", design.people)
+                        people = String(format: "%.f", design.people)
+                        lamps = String(format: "%.f", design.lamps)
                     }
                     .padding(.all)
                 }
-            }
+            
         } // make the background transparent
         .background(Color.clear)
     }

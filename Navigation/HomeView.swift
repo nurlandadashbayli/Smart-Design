@@ -13,19 +13,18 @@ struct HomeView: View {
             ListView()
                 .frame(minWidth:20)
                 .listStyle(.plain)
-                
         }
-        
-            content: {
-                Text("Select a design") }
-
-            detail: {
-                ThreeDView() }
+        content: {
+            Text("Select a design")
+        }
+        detail: {
+            ThreeDView()
+        }
     }
 }
     
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            HomeView()
-        }
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeView()
     }
+}

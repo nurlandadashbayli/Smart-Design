@@ -17,6 +17,7 @@ struct Smart_DesignApp: App {
         WindowGroup {
             HomeView()
                 .environment(\.managedObjectContext, dataController.container.viewContext)
+                
         }
     }
 }
