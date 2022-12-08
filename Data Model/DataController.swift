@@ -45,7 +45,7 @@ class DataController: ObservableObject {
         design.screenDiagonal = Double(calc.calculateScreenDiagonal(roomWidth: roomWidth))!
         design.screenWidth = Double(calc.calculateScreenWidth(roomWidth: roomWidth))!
         design.lvd = calc.calculateLongestAllowableViewingDistance(roomWidth: roomWidth)
-        design.svd = calc.calculateShortesRecommendedViewingDistance(roomWidth: roomWidth)
+        design.svd = calc.calculateShortestRecommendedViewingDistance(roomWidth: roomWidth)
         design.people = Double(calc.calculateNumberOfPeople(roomWidth: roomWidth))!
         design.lamps = Double(calc.calculateLamps(roomWidth: roomWidth, roomDepth: roomDepth))!
         save(context: context) 

@@ -36,7 +36,7 @@ struct ListView: View {
             
         }
         .toolbar {
-            ToolbarItem {
+            ToolbarItem(placement: .primaryAction) {
                 Button {showingAddView.toggle()}
             label: {Label("Add", systemImage: "plus.circle")}
                 

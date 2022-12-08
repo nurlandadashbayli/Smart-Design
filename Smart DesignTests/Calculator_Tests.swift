@@ -135,7 +135,7 @@ final class Calculator_Tests: XCTestCase {
     func testCalculateShortesRecommendedViewingDistance() {
         let roomWidth = "10"
         let svdExpected = 1.8975511600159383
-        let svdActual = sut.calculateShortesRecommendedViewingDistance(roomWidth: roomWidth)
+        let svdActual = sut.calculateShortestRecommendedViewingDistance(roomWidth: roomWidth)
         XCTAssertEqual(svdActual, svdExpected)
     }
     func testCalculateNumberOfPeople() {

@@ -107,17 +107,14 @@ struct EditDesignView: View {
                 HStack {
                     Spacer()
                     Button("Submit") {
-                        
                         DataController().editDesign(design: design, title: title, roomDepth: roomDepth, roomWidth: roomWidth, screenDiagonal: screenDiagonal, area: area, people: people, lamps: lamps, screenWall: screenWall, context: managedObjectContext)
                         // update all text field values
                         screenDiagonal = String(design.screenDiagonal)
                         area = String(design.area)
                         people = String(format: "%.f", design.people)
                         lamps = String(format: "%.f", design.lamps)
-                    }
-                    .padding(.all)
+                    }.padding(.horizontal)
                 }
-            
         } // make the background transparent
         .background(Color.clear)
     }

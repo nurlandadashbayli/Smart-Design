@@ -86,17 +86,17 @@ class Calculators {
     }
 
     // Calculate the Shortest recommended viewing distance
-    func calculateShortesRecommendedViewingDistance(roomWidth: String) -> Double {
+    func calculateShortestRecommendedViewingDistance(roomWidth: String) -> Double {
         let screenWidth = Double(calculateScreenWidth(roomWidth: roomWidth)) ?? 0
-        let shortesRecommendedViewingDistance = ((screenWidth / 1.40041507642) * 2.54) / 100 // 2x(tan(35•)
-        return shortesRecommendedViewingDistance // returns in m
+        let shortestRecommendedViewingDistance = ((screenWidth / 1.40041507642) * 2.54) / 100 // 2x(tan(35•)
+        return shortestRecommendedViewingDistance // returns in m
     }
 
     // Calculate the number of listeners
     func calculateNumberOfPeople(roomWidth: String) -> String {
         let rw = Double(roomWidth) ?? 0
         let lvd = calculateLongestAllowableViewingDistance(roomWidth: roomWidth)
-        let svd = calculateShortesRecommendedViewingDistance(roomWidth: roomWidth)
+        let svd = calculateShortestRecommendedViewingDistance(roomWidth: roomWidth)
         let areaOfSeats = ((rw-2) * (lvd - svd))
         let numberOfPeople = floor(areaOfSeats)
         
