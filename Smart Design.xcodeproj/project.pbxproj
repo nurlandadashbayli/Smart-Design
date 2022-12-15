@@ -16,6 +16,13 @@
 		544FE12A293415FA009BE103 /* ThreeDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544FE129293415FA009BE103 /* ThreeDView.swift */; };
 		544FE130293423F7009BE103 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544FE12F293423F7009BE103 /* ListView.swift */; };
 		54C6E2B229417CAA00739760 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F9482926E4830008489B /* HomeView.swift */; };
+		54C6E2B329417E3600739760 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544FE12F293423F7009BE103 /* ListView.swift */; };
+		54C6E2B429417E4800739760 /* ThreeDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544FE129293415FA009BE103 /* ThreeDView.swift */; };
+		54C6E2B529417E6C00739760 /* DesignModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F9562926E6C30008489B /* DesignModel.xcdatamodeld */; };
+		54C6E2B629417E7C00739760 /* AddDesignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F95E2926EE410008489B /* AddDesignView.swift */; };
+		54C6E2B729417E7F00739760 /* EditDesignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F96329270FA50008489B /* EditDesignView.swift */; };
+		54C6E2B829417E8500739760 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F9592926E7F50008489B /* DataController.swift */; };
+		54C6E2B929417E9300739760 /* Calculators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F978292C588C0008489B /* Calculators.swift */; };
 		54D8F9492926E4830008489B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F9482926E4830008489B /* HomeView.swift */; };
 		54D8F94B2926E4850008489B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54D8F94A2926E4850008489B /* Assets.xcassets */; };
 		54D8F94E2926E4850008489B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54D8F94D2926E4850008489B /* Preview Assets.xcassets */; };
@@ -335,8 +342,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54C6E2B629417E7C00739760 /* AddDesignView.swift in Sources */,
 				5417D7C029400625009CA2EC /* Smart_DesignUITests.swift in Sources */,
 				54C6E2B229417CAA00739760 /* HomeView.swift in Sources */,
+				54C6E2B729417E7F00739760 /* EditDesignView.swift in Sources */,
+				54C6E2B929417E9300739760 /* Calculators.swift in Sources */,
+				54C6E2B429417E4800739760 /* ThreeDView.swift in Sources */,
+				54C6E2B829417E8500739760 /* DataController.swift in Sources */,
+				54C6E2B329417E3600739760 /* ListView.swift in Sources */,
+				54C6E2B529417E6C00739760 /* DesignModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +393,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = RJDR787N69;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
@@ -396,6 +411,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = RJDR787N69;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
@@ -412,6 +428,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = RJDR787N69;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
@@ -428,6 +445,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = RJDR787N69;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
@@ -472,6 +490,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -532,6 +551,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -555,13 +575,17 @@
 		54D8F9532926E4850008489B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Smart Design/Smart_Design.entitlements";
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Smart Design/Preview Content\"";
 				DEVELOPMENT_TEAM = RJDR787N69;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -575,8 +599,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "NurlanDadashbayli.Smart-Design";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTED_PLATFORMS = "watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -587,12 +611,16 @@
 		54D8F9542926E4850008489B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Smart Design/Smart_Design.entitlements";
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Smart Design/Preview Content\"";
 				DEVELOPMENT_TEAM = RJDR787N69;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -606,8 +634,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "NurlanDadashbayli.Smart-Design";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTED_PLATFORMS = "watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

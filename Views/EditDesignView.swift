@@ -24,7 +24,8 @@ struct EditDesignView: View {
 
     var body: some View {
 
-        Form { 
+        List {
+            Form{
                 VStack {
                     VStack(alignment: .leading) {
                         Text("   Name:")
@@ -79,31 +80,31 @@ struct EditDesignView: View {
                     
                     
                     // Insert the value of the screen diagonal from the database here for the selected design
-                    .onAppear() {
-                        title = design.title!
-                        roomDepth = String(design.roomDepth)
-                        roomWidth = String(design.roomWidth)
-                        screenWall = design.screenWall!
-                        area = String(design.area)
-                        screenDiagonal = String(design.screenDiagonal)
-                        people = String(format: "%.f", design.people)
-                        lamps = String(format: "%.f", design.lamps)
-                    }
+                        .onAppear() {
+                            title = design.title!
+                            roomDepth = String(design.roomDepth)
+                            roomWidth = String(design.roomWidth)
+                            screenWall = design.screenWall!
+                            area = String(design.area)
+                            screenDiagonal = String(design.screenDiagonal)
+                            people = String(format: "%.f", design.people)
+                            lamps = String(format: "%.f", design.lamps)
+                        }
                     
                     // Update the values according to the next selected design
-                    .onChange(of: design) { design in
-                        title = design.title!
-                        roomDepth = String(design.roomDepth)
-                        roomWidth = String(design.roomWidth)
-                        screenWall = design.screenWall!
-                        area = String(design.area)
-                        screenDiagonal = String(design.screenDiagonal)
-                        people = String(format: "%.f", design.people)
-                        lamps = String(format: "%.f", design.lamps)
-                    }
+                        .onChange(of: design) { design in
+                            title = design.title!
+                            roomDepth = String(design.roomDepth)
+                            roomWidth = String(design.roomWidth)
+                            screenWall = design.screenWall!
+                            area = String(design.area)
+                            screenDiagonal = String(design.screenDiagonal)
+                            people = String(format: "%.f", design.people)
+                            lamps = String(format: "%.f", design.lamps)
+                        }
                 }
                 .padding()
-
+                
                 HStack {
                     Spacer()
                     Button("Submit") {
@@ -115,6 +116,7 @@ struct EditDesignView: View {
                         lamps = String(format: "%.f", design.lamps)
                     }.padding(.horizontal)
                 }
+            }
         } // make the background transparent
         .background(Color.clear)
     }

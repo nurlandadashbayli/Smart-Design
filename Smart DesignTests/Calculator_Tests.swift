@@ -1,9 +1,4 @@
-//
-//  Smart_DesignTests.swift
-//  Smart DesignTests
-//
-//  Created by Nurlan Dadashbayli on 05.12.22.
-//
+
 
 import XCTest
 

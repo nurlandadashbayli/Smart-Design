@@ -17,6 +17,8 @@ struct HomeView: View {
         }
         content: {
             Text("Select a design")
+                .frame(minWidth:60)
+                .scrollContentBackground(.visible)
         }
         detail: {
             ThreeDView()
