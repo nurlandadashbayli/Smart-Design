@@ -127,6 +127,7 @@
 			children = (
 				54D8F9482926E4830008489B /* HomeView.swift */,
 				544FE129293415FA009BE103 /* ThreeDView.swift */,
+				544FE12F293423F7009BE103 /* ListView.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -189,7 +190,6 @@
 			children = (
 				54D8F95E2926EE410008489B /* AddDesignView.swift */,
 				54D8F96329270FA50008489B /* EditDesignView.swift */,
-				544FE12F293423F7009BE103 /* ListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

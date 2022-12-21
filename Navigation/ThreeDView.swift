@@ -23,7 +23,6 @@ var left = scene?.rootNode.childNode(withName: "Left", recursively: false)
 
 
 
-
 struct ThreeDView: View {
     var body: some View {
 
@@ -40,6 +39,20 @@ struct ThreeDView: View {
 //         }, label: {
 //             Text("Revert")
 //         })
+        
+        // button to move the node named "left" to the right by 5 units
+                Button(action: {
+                    left?.position = SCNVector3(1, 0, 0)
+                }, label: {
+                    Text("Move")
+                })
+
+                // Button to revert the position of the node named "left"
+                Button(action: {
+                    left?.position = SCNVector3(0, 0, 0)
+                }, label: {
+                    Text("Revert")
+                })
 
         SceneView(scene: scene, pointOfView: cameraNode, options: [.allowsCameraControl])
     }

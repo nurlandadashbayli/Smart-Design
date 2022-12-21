@@ -8,21 +8,25 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @State private var columnVisibility = NavigationSplitViewVisibility.all
+    
     var body: some View {
-        NavigationSplitView {
+        NavigationSplitView(columnVisibility: $columnVisibility) {
             ListView()
-                .frame(minWidth:40)
+                .frame(minWidth:80)
                 .listStyle(.plain)
-                .navigationViewStyle(DoubleColumnNavigationViewStyle())
         }
         content: {
             Text("Select a design")
                 .frame(minWidth:60)
-                .scrollContentBackground(.visible)
         }
         detail: {
             ThreeDView()
                 .frame(minWidth:60)
+        }
+        .onAppear() {
+            columnVisibility = .all
         }
     }
 }

@@ -15,19 +15,18 @@ struct AddDesignView: View {
     @State private var title = ""
     @State private var roomWidth: String = ""
     @State private var roomDepth: String = ""
-   // @State private var screenDiagonal: String = ""
+    // @State private var screenDiagonal: String = ""
     var body: some View {
         Form {
-            Section {
                 TextField("Design title:", text: $title)
                 
                 VStack {
                     
                     TextField("Room Width:", text: $roomWidth)
-
+                    
                     TextField("Room Depth:", text: $roomDepth)
-       
-                   // TextField("Screen Diagonal:", text: $screenDiagonal)
+                    
+                    // TextField("Screen Diagonal:", text: $screenDiagonal)
                     
                 }
                 .padding()
@@ -42,12 +41,11 @@ struct AddDesignView: View {
                                 roomDepth: roomDepth,
                                 roomWidth: roomWidth,
                                 context: managedObjectContext)
-                            dismiss()
+                        dismiss()
                     }
                     .disabled(roomWidth.isEmpty)
                     .disabled(roomDepth.isEmpty)
                     .padding(.all)
-                }
             }
         }
         .padding(.all)

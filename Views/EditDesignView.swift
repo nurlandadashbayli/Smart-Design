@@ -23,88 +23,81 @@ struct EditDesignView: View {
     @State private var lamps: String = ""
 
     var body: some View {
-
         List {
-            Form{
+            Form {
                 VStack {
-                    VStack(alignment: .leading) {
-                        Text("   Name:")
-                            .fontWeight(.bold)
-                        TextField("",text: $title)
-                    }.padding(.bottom, 10.0)
-                    HStack {
+                    GroupBox() {
+                        // Title
                         VStack(alignment: .leading) {
-                            Text("   Room Width:")
-                                .fontWeight(.bold)
-                            TextField("", text: $roomWidth, prompt: Text("\(design.roomWidth)"))
-                        }.padding(.bottom, 10.0)
-                        VStack(alignment: .leading) {
-                            Text("   Room Depth:")
-                                .fontWeight(.bold)
-                            TextField("", text: $roomDepth, prompt: Text("\(design.roomDepth)"))
+                            Text("   Name:")
+                            TextField("",text: $title)
                         }.padding(.bottom, 10.0)
                     }
-                    VStack(alignment: .leading) {
-                        Text("   Screen Diagonal:")
-                            .fontWeight(.bold)
-                        TextField("", text: $screenDiagonal, prompt: Text("\(design.screenDiagonal)"))
-                    }.padding(.bottom, 10.0)
-                    VStack(alignment: .leading) {
-                        Text("   Screen position:")
-                            .fontWeight(.bold)
-                        Picker(selection: $screenWall, label: Text("")) {
-                            Text("Front").tag("Front")
-                            Text("Back").tag("Back")
-                            Text("Left").tag("Left")
-                            Text("Right").tag("Right")
-                        }
-                        .pickerStyle(SegmentedPickerStyle())
-                    }.padding(.bottom, 10.0)
                     
-                    VStack(alignment: .leading) {
-                        Text("   Area:")
-                            .fontWeight(.bold)
-                        TextField("", text: $area, prompt: Text("\(design.area)"))
-                    }.padding(.bottom, 10.0)
-                    VStack(alignment: .leading) {
-                        Text("   Number of people:")
-                            .fontWeight(.bold)
-                        TextField("", text: $people, prompt: Text("\(design.people)"))
-                    }.padding(.bottom, 10.0)
+                    GroupBox() {
+                        // People
+                        VStack(alignment: .leading) {
+                            Text("   Number of people:")
+                            TextField("", text: $people, prompt: Text("\(design.people)"))
+                        }.padding(.bottom, 10.0)
+                    }
+                    
+                    // Room Dimentions
+                    DisclosureGroup("Room Dimensions") {
+                        Spacer()
+                        GroupBox {
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text("   Room Width:")
+                                    TextField("", text: $roomWidth, prompt: Text("\(design.roomWidth)"))
+                                }.padding(.bottom, 10.0)
+                                
+                                VStack(alignment: .leading) {
+                                    Text("   Room Depth:")
+                                    TextField("", text: $roomDepth, prompt: Text("\(design.roomDepth)"))
+                                }.padding(.bottom, 10.0)
+                            }
+                            
+                            // Area
+                            VStack(alignment: .leading) {
+                                Text("   Area:")
+                                TextField("", text: $area, prompt: Text("\(design.area)"))
+                            }.padding(.bottom, 10.0)
+                        }//.fontWeight(.bold)
+                    }
+                    
+                    // Screen Properties
+                    DisclosureGroup("Screen Properties") {
+                        Spacer()
+                        GroupBox {
+                            // Screen Diagonal
+                            VStack(alignment: .leading) {
+                                Text("   Screen Diagonal:")
+                                TextField("", text: $screenDiagonal, prompt: Text("\(design.screenDiagonal)"))
+                            }.padding(.bottom, 10.0)
+                            
+                            // Screen Position
+                            VStack(alignment: .leading) {
+                                Text("   Screen position:")
+                                Picker(selection: $screenWall, label: Text("")) {
+                                    Text("Front").tag("Front")
+                                    Text("Back").tag("Back")
+                                    Text("Left").tag("Left")
+                                    Text("Right").tag("Right")
+                                }
+                                .pickerStyle(SegmentedPickerStyle())
+                            }.padding(.bottom, 10.0)
+                        }
+                    }
+                    // Lamps
                     VStack(alignment: .leading) {
                         Text("   Number of lamps:")
-                            .fontWeight(.bold)
                         TextField("", text: $lamps, prompt: Text("\(design.lamps)"))
                     }.padding(.bottom, 10.0)
-                    
-                    
-                    
-                    // Insert the value of the screen diagonal from the database here for the selected design
-                        .onAppear() {
-                            title = design.title!
-                            roomDepth = String(design.roomDepth)
-                            roomWidth = String(design.roomWidth)
-                            screenWall = design.screenWall!
-                            area = String(design.area)
-                            screenDiagonal = String(design.screenDiagonal)
-                            people = String(format: "%.f", design.people)
-                            lamps = String(format: "%.f", design.lamps)
-                        }
-                    
-                    // Update the values according to the next selected design
-                        .onChange(of: design) { design in
-                            title = design.title!
-                            roomDepth = String(design.roomDepth)
-                            roomWidth = String(design.roomWidth)
-                            screenWall = design.screenWall!
-                            area = String(design.area)
-                            screenDiagonal = String(design.screenDiagonal)
-                            people = String(format: "%.f", design.people)
-                            lamps = String(format: "%.f", design.lamps)
-                        }
                 }
                 .padding()
                 
+                // Sumbit Button
                 HStack {
                     Spacer()
                     Button("Submit") {
@@ -116,8 +109,32 @@ struct EditDesignView: View {
                         lamps = String(format: "%.f", design.lamps)
                     }.padding(.horizontal)
                 }
+                
+                    // Insert the value of the screen diagonal from the database here for the selected design
+                    .onAppear() {
+                        title = design.title!
+                        roomDepth = String(design.roomDepth)
+                        roomWidth = String(design.roomWidth)
+                        screenWall = design.screenWall!
+                        area = String(design.area)
+                        screenDiagonal = String(design.screenDiagonal)
+                        people = String(format: "%.f", design.people)
+                        lamps = String(format: "%.f", design.lamps)
+                    }
+                
+                    // Update the values according to the next selected design
+                    .onChange(of: design) { design in
+                        title = design.title!
+                        roomDepth = String(design.roomDepth)
+                        roomWidth = String(design.roomWidth)
+                        screenWall = design.screenWall!
+                        area = String(design.area)
+                        screenDiagonal = String(design.screenDiagonal)
+                        people = String(format: "%.f", design.people)
+                        lamps = String(format: "%.f", design.lamps)
+                    }
             }
-        } // make the background transparent
-        .background(Color.clear)
+        }
     }
 }
+

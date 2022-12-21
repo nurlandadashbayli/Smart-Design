@@ -7,34 +7,24 @@
 
 import SwiftUI
 
-
-
 struct ListView: View {
-    
-    
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(sortDescriptors: [SortDescriptor(\.title)]) var design: FetchedResults<Design>
 
     @State private var showingAddView = false
     
     var body: some View {
-        VStack(alignment: .leading) {
-            List {
-                ForEach(design) { design in
-                    NavigationLink(destination: EditDesignView(design: design)) {
-                        HStack {
-                            VStack(alignment: .leading, spacing: 6) {
-                                Text(design.title!)
-                                    .bold()
-                            }
-                        }
-                    }
+        List {
+            ForEach(design) { design in
+                NavigationLink(destination: EditDesignView(design: design)) {
+                            Text(design.title!)
+                                .bold()
                 }
-                .onDelete(perform: deleteDesign)
-                
             }
-            
+            .onDelete(perform: deleteDesign)
         }
+        //.listStyle(.automatic)
+        
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button {showingAddView.toggle()}
@@ -43,10 +33,10 @@ struct ListView: View {
             }
             
         }
-            .sheet(isPresented: $showingAddView) {
-                AddDesignView()
-            }
+        .sheet(isPresented: $showingAddView) {
+            AddDesignView()
         }
+    }
         
         func deleteDesign(offsets: IndexSet) {
             withAnimation {
