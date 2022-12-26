@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct Smart_DesignApp: App {
-    
+    @State private var selectedDesign: Design?
     
     @StateObject private var dataController = DataController()
 

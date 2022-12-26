@@ -48,11 +48,13 @@ class DataController: ObservableObject {
         design.svd = calc.calculateShortestRecommendedViewingDistance(roomWidth: roomWidth)
         design.people = Double(calc.calculateNumberOfPeople(roomWidth: roomWidth))!
         design.lamps = Double(calc.calculateLamps(roomWidth: roomWidth, roomDepth: roomDepth))!
+        design.lampsPerWall = calc.lampsPerWall(roomWidth: roomWidth, roomDepth: roomDepth)
+        design.lfe = true
         save(context: context) 
     }
     
     // Function to Edit the design and save the changes
-    func editDesign(design: Design, title: String, roomDepth: String, roomWidth: String, screenDiagonal: String, area: String, people: String, lamps: String, screenWall: String, context: NSManagedObjectContext) {
+    func editDesign(design: Design, title: String, roomDepth: String, roomWidth: String, screenDiagonal: String, area: String, people: String, lamps: String, lampsPerWall: String, screenWall: String, lfe: Bool, context: NSManagedObjectContext) {
 
         design.date = Date() 
         design.title = title
@@ -63,6 +65,8 @@ class DataController: ObservableObject {
         design.screenDiagonal = Double(calc.calculateScreenDiagonal(roomWidth: roomWidth))!
         design.people = Double(calc.calculateNumberOfPeople(roomWidth: roomWidth))!
         design.lamps = Double(calc.calculateLamps(roomWidth: roomWidth, roomDepth: roomDepth))!
+        design.lampsPerWall = calc.lampsPerWall(roomWidth: roomWidth, roomDepth: roomDepth)
+        design.lfe = lfe
         save(context: context)
     }
 }

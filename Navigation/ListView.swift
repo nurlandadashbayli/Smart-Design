@@ -10,20 +10,23 @@ import SwiftUI
 struct ListView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(sortDescriptors: [SortDescriptor(\.title)]) var design: FetchedResults<Design>
-
+    
+    @Binding var selectedDesign: Design?
+    
     @State private var showingAddView = false
     
     var body: some View {
         List {
             ForEach(design) { design in
-                NavigationLink(destination: EditDesignView(design: design)) {
-                            Text(design.title!)
-                                .bold()
-                }
+                Text(design.title!)
+                    .bold()
+                    .onTapGesture {
+                        self.selectedDesign = design
+                    }
             }
             .onDelete(perform: deleteDesign)
         }
-        //.listStyle(.automatic)
+        .listStyle(.sidebar)
         
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
@@ -44,10 +47,4 @@ struct ListView: View {
                 DataController().save(context: managedObjectContext)
             }
         }
-}
-
-struct ListView_Previews: PreviewProvider {
-    static var previews: some View {
-        ListView()
-    }
 }

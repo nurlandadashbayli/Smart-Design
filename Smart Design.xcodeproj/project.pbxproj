@@ -113,6 +113,15 @@
 			path = "Smart DesignUITests";
 			sourceTree = "<group>";
 		};
+		544845A42958266800675432 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				5417D7B229400353009CA2EC /* Smart DesignUITests */,
+				540EB4EE293E8F1A00932224 /* Smart DesignTests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 		544FE12B29341B4A009BE103 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,8 +135,8 @@
 			isa = PBXGroup;
 			children = (
 				54D8F9482926E4830008489B /* HomeView.swift */,
-				544FE129293415FA009BE103 /* ThreeDView.swift */,
 				544FE12F293423F7009BE103 /* ListView.swift */,
+				544FE129293415FA009BE103 /* ThreeDView.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -135,6 +144,7 @@
 		54D8F93A2926E4830008489B = {
 			isa = PBXGroup;
 			children = (
+				544845A42958266800675432 /* Tests */,
 				54D8F9462926E4830008489B /* Smart_DesignApp.swift */,
 				54D172222933F66400FA340C /* Navigation */,
 				54D8F95B2926EDF20008489B /* Views */,
@@ -142,8 +152,6 @@
 				544FE12B29341B4A009BE103 /* Scene */,
 				54D8F9552926E68A0008489B /* Data Model */,
 				54D8F9452926E4830008489B /* Smart Design */,
-				540EB4EE293E8F1A00932224 /* Smart DesignTests */,
-				5417D7B229400353009CA2EC /* Smart DesignUITests */,
 				54D8F9442926E4830008489B /* Products */,
 			);
 			sourceTree = "<group>";

@@ -128,4 +128,49 @@ class Calculators {
         }
         return String((rw / 2) + (2 * (rd / 2)))
     }
+    
+    func lampsPerWall(roomWidth: String, roomDepth: String) -> String {
+       // let rw = Double(roomWidth) ?? 0
+       // let rd = Double(roomDepth) ?? 0
+        let totalLamps = calculateLamps(roomWidth: roomWidth, roomDepth: roomDepth)
+        
+        let lpw = String((Double(totalLamps)!) / 3)
+        
+        return lpw
+    }
+    
+//    This code uses a switch statement to handle the different cases of screenWall and assigns a value to lampsOnWall based on the case. The default case is included to handle any values of screenWall that are not "Front", "Back", "Left", or "Right".
+//
+//    Note that this code will not compile as is, because the variables others and totalLamps are declared within the if statements and are not in scope outside of them. You may need to move these declarations outside of the if statements and adjust the rest of the code accordingly.
+    
+//    func calculateLampsPerLocation(roomWidth: String, roomDepth: String, screenWall: String) -> String {
+//        let sw = screenWall
+//        let rw = Double(roomWidth) ?? 0
+//        let rd = Double(roomDepth) ?? 0
+//
+//        let totalLamps = calculateLamps(roomWidth: roomWidth, roomDepth: roomDepth)
+//        var others: String
+//        var lampsOnWall: String
+//
+//        switch sw {
+//            case "Front":
+//                lampsOnWall = "0"
+//                others = String((Double(totalLamps) ?? 0) / 3)
+//            case "Back":
+//                lampsOnWall = "0"
+//                others = String((Double(totalLamps) ?? 0) / 3)
+//            case "Left":
+//                lampsOnWall = "0"
+//                others = String((Double(totalLamps) ?? 0) / 3)
+//            case "Right":
+//                lampsOnWall = "0"
+//                others = String((Double(totalLamps) ?? 0) / 3)
+//            default:
+//                lampsOnWall = ""
+//                others = ""
+//        }
+//
+//        return lampsOnWall
+//
+//    }
 }

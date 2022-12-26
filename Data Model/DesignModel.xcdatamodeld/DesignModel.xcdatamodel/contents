@@ -1,34 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="22A380" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22C65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Design" representedClassName="Design" syncable="YES" codeGenerationType="class">
         <attribute name="area" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="areaOfSeats" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="aspectRatio" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="channelBack" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="channelFront" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="channelLeft" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="channelRight" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="channels" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="lampBack" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="lampFront" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="lampLeft" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="lampRight" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="lamps" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="lfe" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="lampsPerWall" optional="YES" attributeType="String"/>
+        <attribute name="lfe" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="lvd" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="maxThrowDistance" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="minThrowDistance" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="people" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="roomDepth" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="roomWidth" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="screenBack" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="screenDiagonal" attributeType="Double" usesScalarValueType="YES"/>
-        <attribute name="screenFront" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="screenHeight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="screenLeft" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="screenRight" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="screenWall" optional="YES" attributeType="String"/>
         <attribute name="screenWidth" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="svd" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
