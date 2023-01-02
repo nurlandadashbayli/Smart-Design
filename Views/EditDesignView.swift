@@ -1,10 +1,3 @@
-//
-//  EditDesignView.swift
-//  Smart Design
-//
-//  Created by Nurlan Dadashbayli on 18.11.22.
-//
-
 import SwiftUI
 
 struct EditDesignView: View {
@@ -20,16 +13,20 @@ struct EditDesignView: View {
     @State private var roomWidth: String = ""
     @State private var roomDepth: String = ""
     @State private var screenDiagonal: String = ""
+    @State private var screenWidth: String = ""
+    @State private var screenHeight: String = ""
     @State private var screenWall: String = ""
+    @State private var aspectRatio: String = ""
     @State private var lamps: String = ""
     @State private var lfe: Bool = true
     @State private var lampsPerWall = ""
     
     // DisclosureGroup states
-    @State private var roomDimentions: Bool = true
-    @State private var screenProperties: Bool = true
-    @State private var lighting: Bool = true
-    @State private var soundSystem: Bool = true
+    @State var general: Bool = true
+    @State var roomDimentions: Bool = true
+    @State var screenProperties: Bool = true
+    @State var lighting: Bool = true
+    @State var soundSystem: Bool = true
 
     var body: some View {
         List {
@@ -38,26 +35,32 @@ struct EditDesignView: View {
                     
                     // Title and People DONE
                     Group {
-                        // Title
-                        VStack(alignment: .leading) {
-                            Text("   Name:")
-                            TextField("",text: $title)
-                        }.padding(.bottom, 10.0)
-                        
-                        // People
-                        VStack(alignment: .leading) {
-                            Text("   Number of people:")
-                            TextField("", text: $people, prompt: Text("\(design.people)"))
-                        }.padding(.bottom, 10.0)
+                        DisclosureGroup(isExpanded: $general) {
+                            Spacer()
+                            // Title
+                            VStack(alignment: .leading) {
+                                Text("   Name:")
+                                TextField("",text: $title)
+                            }.padding(.bottom, 10.0)
+                            
+                            // People
+                            VStack(alignment: .leading) {
+                                Text("   Number of people:")
+                                TextField("", text: $people, prompt: Text("\(design.people)"))
+                            }.padding(.bottom, 10.0)
+                        }
+                    label: {
+                        Label("General", systemImage: "pencil.circle.fill")
+                    }
+                    .padding()
+                    .background(RoundedRectangle(cornerRadius: 10).fill(Color.gray).opacity(0.1))
                     }
                     
                     // Room Dimentions DONE
                     Group {
-                        
                         DisclosureGroup(isExpanded: $roomDimentions) {
                             Spacer()
                             HStack {
-                                
                                 // Width
                                 VStack(alignment: .leading) {
                                     Text("   Room Width:")
@@ -102,18 +105,22 @@ struct EditDesignView: View {
                             HStack {
                                 VStack(alignment: .leading) {
                                     Text("   Screen Width:")
-                                    TextField("", text: $screenDiagonal, prompt: Text("\(design.screenDiagonal)"))
+                                    TextField("", text: $screenWidth, prompt: Text("\(design.screenWidth)"))
                                 }.padding(.bottom, 10.0)
                                 // Screen height
                                 VStack(alignment: .leading) {
                                     Text("   Screen Height:")
-                                    TextField("", text: $screenDiagonal, prompt: Text("\(design.screenDiagonal)"))
+                                    TextField("", text: $screenHeight, prompt: Text("\(design.screenHeight)"))
                                 }.padding(.bottom, 10.0)
                             }
                             // aspect ratio
                             VStack(alignment: .leading) {
-                                Text("   Aspect Ratio:")
-                                TextField("", text: $screenDiagonal, prompt: Text("\(design.screenDiagonal)"))
+                                Text("   Aspect ratio:")
+                                Picker(selection: $aspectRatio, label: Text("")) {
+                                    Text("16:9").tag("16:9")
+                                    Text("3:4").tag("3:4")
+                                }
+                                .pickerStyle(SegmentedPickerStyle())
                             }.padding(.bottom, 10.0)
                             // min and max throw distance
                             HStack {
@@ -216,52 +223,53 @@ struct EditDesignView: View {
                 
                 // Sumbit Button
                 Group {
-                    HStack {
-                        Spacer()
-                        Button("Submit") {
-                            DataController().editDesign(design: design, title: title, roomDepth: roomDepth, roomWidth: roomWidth, screenDiagonal: screenDiagonal, area: area, people: people, lamps: lamps, lampsPerWall: lampsPerWall, screenWall: screenWall, lfe: lfe, context: managedObjectContext)
-                            // update all text field values
-                            screenDiagonal = String(design.screenDiagonal)
-                            area = String(design.area)
-                            people = String(format: "%.f", design.people)
-                            lamps = String(format: "%.f", design.lamps)
-                            lampsPerWall = design.lampsPerWall!
-                        
-                        }.padding(.horizontal)
-                    }
-                    
-                    // Insert the value of the screen diagonal from the database here for the selected design
-                    .onAppear() {
-                        title = design.title!
-                        roomDepth = String(design.roomDepth)
-                        roomWidth = String(design.roomWidth)
-                        screenWall = design.screenWall!
-                        area = String(design.area)
-                        screenDiagonal = String(design.screenDiagonal)
-                        people = String(format: "%.f", design.people)
-                        lamps = String(format: "%.f", design.lamps)
-                        lampsPerWall = design.lampsPerWall!
-                        lfe = design.lfe
-                        
-                    }
-                    
-                    // Update the values according to the next selected design
-                    .onChange(of: design) { design in
-                        title = design.title!
-                        roomDepth = String(design.roomDepth)
-                        roomWidth = String(design.roomWidth)
-                        screenWall = design.screenWall!
-                        area = String(design.area)
-                        screenDiagonal = String(design.screenDiagonal)
-                        people = String(format: "%.f", design.people)
-                        lamps = String(format: "%.f", design.lamps)
-                        lampsPerWall = design.lampsPerWall!
-                        lfe = design.lfe
-                    }
+                  HStack {
+                    Spacer()
+                    Button("Submit") {
+                      DataController().editDesign(design: design, title: title, roomDepth: roomDepth, roomWidth: roomWidth, screenDiagonal: screenDiagonal, screenWidth: screenWidth, screenHeight: screenHeight, area: area, people: people, lamps: lamps, lampsPerWall: lampsPerWall, screenWall: screenWall, aspectRatio: aspectRatio, lfe: lfe, context: managedObjectContext)
+                        updateDesignValues(design: design)
+                    }.padding(.horizontal)
+                  }
+                  .onAppear {
+                    updateDesignValues(design: design)
+                  }
+                  .onChange(of: design) { design in
+                    updateDesignValues(design: design)
+                  }
                 }
                 .padding(.top, 10)
             }
         }
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button(action: {
+                    general.toggle()
+                    roomDimentions.toggle()
+                    screenProperties.toggle()
+                    lighting.toggle()
+                    soundSystem.toggle()
+                    
+                }, label: {
+                    Label("Toggle", systemImage: "togglepower")
+                })
+            }
+        }
+    }
+
+    
+    func updateDesignValues(design: Design) {
+        title = design.title ?? ""
+        roomDepth = String(design.roomDepth)
+        roomWidth = String(design.roomWidth)
+        area = String(design.area)
+        screenWall = design.screenWall ?? ""
+        aspectRatio = design.aspectRatio ?? ""
+        screenDiagonal = String(design.screenDiagonal)
+        screenWidth = String(design.screenWidth)
+        screenHeight = String(design.screenHeight)
+        people = String(format: "%.f", design.people)
+        lamps = String(format: "%.f", design.lamps)
+        lampsPerWall = design.lampsPerWall!
+        lfe = design.lfe
     }
 }
-

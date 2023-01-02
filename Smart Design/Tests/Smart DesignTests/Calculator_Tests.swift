@@ -135,8 +135,8 @@ final class Calculator_Tests: XCTestCase {
     }
     func testCalculateNumberOfPeople() {
         // Test for positive input
-        let positive = sut.calculateNumberOfPeople(roomWidth: "10")
-        XCTAssertEqual(positive, "30.0")
+        let positive = sut.calculateNumberOfPeople(roomWidth: "4")
+        XCTAssertEqual(positive, "7.0")
 
         // Test for negative input
         let negative = sut.calculateNumberOfPeople(roomWidth: "-10")

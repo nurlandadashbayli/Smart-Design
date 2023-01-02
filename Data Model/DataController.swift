@@ -13,6 +13,7 @@ class DataController: ObservableObject {
     private let calc = Calculators()
     
     init() {
+        
         container.loadPersistentStores { desc, error in
             if let error = error {
                 print("Failed to load the data \(error.localizedDescription)")
@@ -41,9 +42,11 @@ class DataController: ObservableObject {
         design.roomDepth = Double(roomDepth)! 
         design.roomWidth = Double(roomWidth)! 
         design.screenWall = "Front"
+        design.aspectRatio = "16:9"
         design.area = Double(calc.calculateArea(roomWidth: roomWidth, roomDepth: roomDepth))!
         design.screenDiagonal = Double(calc.calculateScreenDiagonal(roomWidth: roomWidth))!
         design.screenWidth = Double(calc.calculateScreenWidth(roomWidth: roomWidth))!
+        design.screenHeight = Double(calc.calculateScreenHeight(roomWidth: roomWidth))!
         design.lvd = calc.calculateLongestAllowableViewingDistance(roomWidth: roomWidth)
         design.svd = calc.calculateShortestRecommendedViewingDistance(roomWidth: roomWidth)
         design.people = Double(calc.calculateNumberOfPeople(roomWidth: roomWidth))!
@@ -54,15 +57,18 @@ class DataController: ObservableObject {
     }
     
     // Function to Edit the design and save the changes
-    func editDesign(design: Design, title: String, roomDepth: String, roomWidth: String, screenDiagonal: String, area: String, people: String, lamps: String, lampsPerWall: String, screenWall: String, lfe: Bool, context: NSManagedObjectContext) {
+    func editDesign(design: Design, title: String, roomDepth: String, roomWidth: String, screenDiagonal: String, screenWidth: String, screenHeight: String, area: String, people: String, lamps: String, lampsPerWall: String, screenWall: String, aspectRatio: String, lfe: Bool, context: NSManagedObjectContext) {
 
         design.date = Date() 
         design.title = title
         design.roomDepth = Double(roomDepth)!
         design.roomWidth = Double(roomWidth)!
         design.screenWall = screenWall
+        design.aspectRatio = aspectRatio
         design.area = Double(calc.calculateArea(roomWidth: roomWidth, roomDepth: roomDepth))!
         design.screenDiagonal = Double(calc.calculateScreenDiagonal(roomWidth: roomWidth))!
+        design.screenWidth = Double(calc.calculateScreenWidth(roomWidth: roomWidth))!
+        design.screenHeight = Double(calc.calculateScreenHeight(roomWidth: roomWidth))!
         design.people = Double(calc.calculateNumberOfPeople(roomWidth: roomWidth))!
         design.lamps = Double(calc.calculateLamps(roomWidth: roomWidth, roomDepth: roomDepth))!
         design.lampsPerWall = calc.lampsPerWall(roomWidth: roomWidth, roomDepth: roomDepth)

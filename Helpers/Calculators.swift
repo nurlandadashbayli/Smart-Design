@@ -21,7 +21,7 @@ class Calculators {
         return String(Double(roomWidth)! * Double(roomDepth)!)
     }
     
-
+    
     // Calculate Screen Diagonal based on the chosen wall for the Screen
     func calculateScreenDiagonal(roomWidth: String) -> String {
         var rw = Double(roomWidth) ?? 0
@@ -59,9 +59,9 @@ class Calculators {
         if rw < 1 {
             return "Value is too small"
         }
-        return String((pow( (pow(Double(screenDiagonal), 2) / (1 + pow((1/1.78),2))), 0.5))) // inches)
+        return String(round((pow( (pow(Double(screenDiagonal), 2) / (1 + pow((1/1.78),2))), 0.5)) * 2.54))
     }
-
+    
     // Calculate the screen height based on the screen diagonal in inches
     func calculateScreenHeight(roomWidth: String) -> String {
         let screenDiagonal = Double(calculateScreenDiagonal(roomWidth: roomWidth)) ?? 0
@@ -75,30 +75,30 @@ class Calculators {
         if rw < 1 {
             return "Value is too small"
         }
-        return String((pow((pow(screenDiagonal, 2) / (1 + pow(1.78, 2))), 0.5)))
+        return String(round((pow((pow(screenDiagonal, 2) / (1 + pow(1.78, 2))), 0.5)) * 2.54))
     }
-
+    
     // Calculate the Longest allowed viewing distance for THX certifications
     func calculateLongestAllowableViewingDistance(roomWidth: String) -> Double {
         let screenWidth = Double(calculateScreenWidth(roomWidth: roomWidth)) ?? 0
-        let longestAllowableViewingDistance = ((screenWidth / 0.46173638224) * 2.54) / 100  // 2x(tan(13•)
+        let longestAllowableViewingDistance = ((screenWidth / 0.46173638224)) / 100  // 2x(tan(13•)
         return longestAllowableViewingDistance // returns in m
     }
-
+    
     // Calculate the Shortest recommended viewing distance
     func calculateShortestRecommendedViewingDistance(roomWidth: String) -> Double {
         let screenWidth = Double(calculateScreenWidth(roomWidth: roomWidth)) ?? 0
-        let shortestRecommendedViewingDistance = ((screenWidth / 1.40041507642) * 2.54) / 100 // 2x(tan(35•)
+        let shortestRecommendedViewingDistance = ((screenWidth / 1.40041507642) ) / 100 // 2x(tan(35•)
         return shortestRecommendedViewingDistance // returns in m
     }
-
+    
     // Calculate the number of listeners
     func calculateNumberOfPeople(roomWidth: String) -> String {
         let rw = Double(roomWidth) ?? 0
         let lvd = calculateLongestAllowableViewingDistance(roomWidth: roomWidth)
         let svd = calculateShortestRecommendedViewingDistance(roomWidth: roomWidth)
         let areaOfSeats = ((rw-2) * (lvd - svd))
-        let numberOfPeople = floor(areaOfSeats)
+        let numberOfPeople = floor(areaOfSeats - 1)
         
         if rw <= 0 {
             return "Enter a positive value"
@@ -112,7 +112,7 @@ class Calculators {
         
         return String(numberOfPeople)
     }
-
+    
     func calculateLamps(roomWidth: String, roomDepth: String) -> String {
         let rw = Double(roomWidth) ?? 0
         let rd = Double(roomDepth) ?? 0
@@ -130,14 +130,15 @@ class Calculators {
     }
     
     func lampsPerWall(roomWidth: String, roomDepth: String) -> String {
-       // let rw = Double(roomWidth) ?? 0
-       // let rd = Double(roomDepth) ?? 0
+        // let rw = Double(roomWidth) ?? 0
+        // let rd = Double(roomDepth) ?? 0
         let totalLamps = calculateLamps(roomWidth: roomWidth, roomDepth: roomDepth)
         
         let lpw = String((Double(totalLamps)!) / 3)
         
         return lpw
     }
+}
     
 //    This code uses a switch statement to handle the different cases of screenWall and assigns a value to lampsOnWall based on the case. The default case is included to handle any values of screenWall that are not "Front", "Back", "Left", or "Right".
 //
@@ -173,4 +174,3 @@ class Calculators {
 //        return lampsOnWall
 //
 //    }
-}
