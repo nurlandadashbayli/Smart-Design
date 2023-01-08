@@ -52,12 +52,16 @@ class DataController: ObservableObject {
         design.people = Double(calc.calculateNumberOfPeople(roomWidth: roomWidth))!
         design.lamps = Double(calc.calculateLamps(roomWidth: roomWidth, roomDepth: roomDepth))!
         design.lampsPerWall = calc.lampsPerWall(roomWidth: roomWidth, roomDepth: roomDepth)
+        design.speakers = "7"
+        design.speakerFront = "3"
+        design.speakerSides = "2"
+        design.speakerBack = "2"
         design.lfe = true
         save(context: context) 
     }
     
     // Function to Edit the design and save the changes
-    func editDesign(design: Design, title: String, roomDepth: String, roomWidth: String, screenDiagonal: String, screenWidth: String, screenHeight: String, area: String, people: String, lamps: String, lampsPerWall: String, screenWall: String, aspectRatio: String, lfe: Bool, context: NSManagedObjectContext) {
+    func editDesign(design: Design, title: String, roomDepth: String, roomWidth: String, screenDiagonal: String, screenWidth: String, screenHeight: String, area: String, people: String, lamps: String, lampsPerWall: String, screenWall: String, aspectRatio: String, speakers: String, frontSpeakers: String, sideSpeakers: String, lfe: Bool, context: NSManagedObjectContext) {
 
         design.date = Date() 
         design.title = title
@@ -72,7 +76,57 @@ class DataController: ObservableObject {
         design.people = Double(calc.calculateNumberOfPeople(roomWidth: roomWidth))!
         design.lamps = Double(calc.calculateLamps(roomWidth: roomWidth, roomDepth: roomDepth))!
         design.lampsPerWall = calc.lampsPerWall(roomWidth: roomWidth, roomDepth: roomDepth)
+        design.speakers = speakers
+
+        if let speakersInt = Int(speakers) {
+            // Front
+            switch speakersInt {
+            case 1:
+                design.speakerFront = "1"
+            case 2:
+                design.speakerFront = "2"
+            case 3:
+                design.speakerFront = "3"
+            case 4:
+                design.speakerFront = "2"
+            default:
+                design.speakerFront = "3"
+            }
+
+            // Back
+            switch speakersInt {
+            case 1...5:
+                design.speakerBack = "0"
+            case 6:
+                design.speakerBack = "1"
+            case 7...8:
+                design.speakerBack = "2"
+            case 9:
+                design.speakerBack = "3"
+            case 10...Int.max:
+                design.speakerBack = "value is incorrect"
+            default:
+                break
+            }
+
+            // Sides
+            switch speakersInt {
+            case 0...3:
+                design.speakerSides = "0"
+            case 4...7:
+                design.speakerSides = "2"
+            case 8...9:
+                design.speakerSides = "4"
+            case 10...Int.max:
+                design.speakerSides = "value is too big"
+            default:
+                break
+            }
+        }
+
+
         design.lfe = lfe
+    
         save(context: context)
     }
 }

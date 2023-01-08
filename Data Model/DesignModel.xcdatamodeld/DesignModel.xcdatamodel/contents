@@ -18,6 +18,10 @@
         <attribute name="screenHeight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="screenWall" optional="YES" attributeType="String"/>
         <attribute name="screenWidth" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="speakerBack" optional="YES" attributeType="String"/>
+        <attribute name="speakerFront" optional="YES" attributeType="String"/>
+        <attribute name="speakers" optional="YES" attributeType="String"/>
+        <attribute name="speakerSides" optional="YES" attributeType="String"/>
         <attribute name="svd" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String"/>
     </entity>

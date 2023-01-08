@@ -18,6 +18,10 @@ struct EditDesignView: View {
     @State private var screenWall: String = ""
     @State private var aspectRatio: String = ""
     @State private var lamps: String = ""
+    @State private var speakers: String = ""
+    @State private var frontSpeakers: String = ""
+    @State private var backSpeakers: String = ""
+    @State private var sideSpeakers: String = ""
     @State private var lfe: Bool = true
     @State private var lampsPerWall = ""
     
@@ -193,17 +197,18 @@ struct EditDesignView: View {
                             Spacer()
                             VStack(alignment: .leading) {
                                 Text("   Number of channels:")
-                                TextField("", text: $lamps, prompt: Text("\(design.lamps)"))
+                                TextField("", text: $speakers, prompt: Text(""))
+
                             }.padding(.bottom, 10.0)
                             
                             // channels per location
                             VStack(alignment: .leading) {
                                 Text("   Front:")
-                                TextField("", text: $lamps, prompt: Text("\(design.lamps)"))
+                                TextField("", text: $frontSpeakers, prompt: Text("\(design.speakerFront ?? "")"))
                                 Text("   Back:")
-                                TextField("", text: $lamps, prompt: Text("\(design.lamps)"))
+                                TextField("", text: $backSpeakers, prompt: Text("\(design.speakerBack ?? "")"))
                                 Text("   Left and Right:")
-                                TextField("", text: $lamps, prompt: Text("\(design.lamps)"))
+                                TextField("", text: $sideSpeakers, prompt: Text("\(design.speakerSides ?? "")"))
                             }.padding(.bottom, 10.0)
                             // Subwoofer
                             Toggle(isOn: $lfe) {
@@ -216,8 +221,7 @@ struct EditDesignView: View {
                     .padding()
                     .background(RoundedRectangle(cornerRadius: 10)
                         .fill(Color.gray)
-                        .opacity(0.1)
-                    )
+                        .opacity(0.1))
                     }
                 }
                 
@@ -226,7 +230,7 @@ struct EditDesignView: View {
                   HStack {
                     Spacer()
                     Button("Submit") {
-                      DataController().editDesign(design: design, title: title, roomDepth: roomDepth, roomWidth: roomWidth, screenDiagonal: screenDiagonal, screenWidth: screenWidth, screenHeight: screenHeight, area: area, people: people, lamps: lamps, lampsPerWall: lampsPerWall, screenWall: screenWall, aspectRatio: aspectRatio, lfe: lfe, context: managedObjectContext)
+                        DataController().editDesign(design: design, title: title, roomDepth: roomDepth, roomWidth: roomWidth, screenDiagonal: screenDiagonal, screenWidth: screenWidth, screenHeight: screenHeight, area: area, people: people, lamps: lamps, lampsPerWall: lampsPerWall, screenWall: screenWall, aspectRatio: aspectRatio, speakers: speakers, frontSpeakers: frontSpeakers, sideSpeakers: sideSpeakers, lfe: lfe, context: managedObjectContext)
                         updateDesignValues(design: design)
                     }.padding(.horizontal)
                   }
@@ -258,6 +262,13 @@ struct EditDesignView: View {
 
     
     func updateDesignValues(design: Design) {
+        
+        // Split the value of `design.speakers` using the `.split(separator:)` method
+        let parts = "\(design.speakers!).\(design.lfe ? 1 : 0)".split(separator: ".")
+
+        // Take the first element of the resulting array
+        let updatedSpeakers = "\(parts[0]).\(design.lfe ? 1 : 0)"
+        
         title = design.title ?? ""
         roomDepth = String(design.roomDepth)
         roomWidth = String(design.roomWidth)
@@ -270,6 +281,13 @@ struct EditDesignView: View {
         people = String(format: "%.f", design.people)
         lamps = String(format: "%.f", design.lamps)
         lampsPerWall = design.lampsPerWall!
+
+        // Update the value of `speakers`
+        speakers = updatedSpeakers
+        frontSpeakers = design.speakerFront ?? ""
+        backSpeakers = design.speakerBack ?? ""
+        sideSpeakers = design.speakerSides ?? ""
         lfe = design.lfe
     }
+
 }
