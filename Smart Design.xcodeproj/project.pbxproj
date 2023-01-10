@@ -16,13 +16,14 @@
 		5446CD192938101100EA3D96 /* SceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5446CD182938101100EA3D96 /* SceneController.swift */; };
 		544FE12A293415FA009BE103 /* ThreeDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544FE129293415FA009BE103 /* ThreeDView.swift */; };
 		544FE130293423F7009BE103 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544FE12F293423F7009BE103 /* ListView.swift */; };
+		54AD1B2F296CD32D00A620D0 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F9592926E7F50008489B /* DataController.swift */; };
+		54AD1B30296CD32F00A620D0 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F9592926E7F50008489B /* DataController.swift */; };
 		54C6E2B229417CAA00739760 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F9482926E4830008489B /* HomeView.swift */; };
 		54C6E2B329417E3600739760 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544FE12F293423F7009BE103 /* ListView.swift */; };
 		54C6E2B429417E4800739760 /* ThreeDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544FE129293415FA009BE103 /* ThreeDView.swift */; };
 		54C6E2B529417E6C00739760 /* DesignModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F9562926E6C30008489B /* DesignModel.xcdatamodeld */; };
 		54C6E2B629417E7C00739760 /* AddDesignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F95E2926EE410008489B /* AddDesignView.swift */; };
 		54C6E2B729417E7F00739760 /* EditDesignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F96329270FA50008489B /* EditDesignView.swift */; };
-		54C6E2B829417E8500739760 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F9592926E7F50008489B /* DataController.swift */; };
 		54C6E2B929417E9300739760 /* Calculators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F978292C588C0008489B /* Calculators.swift */; };
 		54D8F9492926E4830008489B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F9482926E4830008489B /* HomeView.swift */; };
 		54D8F94B2926E4850008489B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54D8F94A2926E4850008489B /* Assets.xcassets */; };
@@ -346,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				540EB4F0293E8F1A00932224 /* Calculator_Tests.swift in Sources */,
+				54AD1B2F296CD32D00A620D0 /* DataController.swift in Sources */,
 				540EB4F6293E902200932224 /* Calculators.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,9 +360,9 @@
 				5417D7C029400625009CA2EC /* Smart_DesignUITests.swift in Sources */,
 				54C6E2B229417CAA00739760 /* HomeView.swift in Sources */,
 				54C6E2B729417E7F00739760 /* EditDesignView.swift in Sources */,
+				54AD1B30296CD32F00A620D0 /* DataController.swift in Sources */,
 				54C6E2B929417E9300739760 /* Calculators.swift in Sources */,
 				54C6E2B429417E4800739760 /* ThreeDView.swift in Sources */,
-				54C6E2B829417E8500739760 /* DataController.swift in Sources */,
 				54C6E2B329417E3600739760 /* ListView.swift in Sources */,
 				54C6E2B529417E6C00739760 /* DesignModel.xcdatamodeld in Sources */,
 			);

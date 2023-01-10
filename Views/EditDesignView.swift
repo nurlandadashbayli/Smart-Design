@@ -17,13 +17,17 @@ struct EditDesignView: View {
     @State private var screenHeight: String = ""
     @State private var screenWall: String = ""
     @State private var aspectRatio: String = ""
+    @State private var minThrowDistance: String = ""
+    @State private var maxThrowDistance: String = ""
     @State private var lamps: String = ""
+    @State private var lampsWidth = ""
+    @State private var lampsDepth = ""
     @State private var speakers: String = ""
     @State private var frontSpeakers: String = ""
     @State private var backSpeakers: String = ""
     @State private var sideSpeakers: String = ""
     @State private var lfe: Bool = true
-    @State private var lampsPerWall = ""
+    
     
     // DisclosureGroup states
     @State var general: Bool = true
@@ -122,7 +126,7 @@ struct EditDesignView: View {
                                 Text("   Aspect ratio:")
                                 Picker(selection: $aspectRatio, label: Text("")) {
                                     Text("16:9").tag("16:9")
-                                    Text("3:4").tag("3:4")
+                                    Text("4:3").tag("4:3")
                                 }
                                 .pickerStyle(SegmentedPickerStyle())
                             }.padding(.bottom, 10.0)
@@ -130,12 +134,12 @@ struct EditDesignView: View {
                             HStack {
                                 VStack(alignment: .leading) {
                                     Text("   Minimum Throw Distance:")
-                                    TextField("", text: $screenDiagonal, prompt: Text("\(design.screenDiagonal)"))
+                                    TextField("", text: $minThrowDistance, prompt: Text("\(design.minThrowDistance)"))
                                 }
                                 Spacer()
                                 VStack(alignment: .leading) {
                                     Text("   Maximum Throw Distance:")
-                                    TextField("", text: $screenDiagonal, prompt: Text("\(design.screenDiagonal)"))
+                                    TextField("", text: $maxThrowDistance, prompt: Text("\(design.maxThrowDistance)"))
                                 }
                             }.padding(.bottom, 10.0)
                             
@@ -173,12 +177,12 @@ struct EditDesignView: View {
                             
                             // lamps per location
                             VStack(alignment: .leading) {
-                                Text("   Front:")
-                                TextField("", text: $lampsPerWall)
+                                Text("   Left:")
+                                TextField("", text: $lampsDepth)
+                                Text("   Right:")
+                                TextField("", text: $lampsDepth)
                                 Text("   Back:")
-                                TextField("", text: $lampsPerWall)
-                                Text("   Left and Right:")
-                                TextField("", text: $lampsPerWall)
+                                TextField("", text: $lampsWidth)
                             }.padding(.bottom, 10.0)
                         }
                     label: {
@@ -198,9 +202,10 @@ struct EditDesignView: View {
                             VStack(alignment: .leading) {
                                 Text("   Number of channels:")
                                 TextField("", text: $speakers, prompt: Text(""))
+                                
 
                             }.padding(.bottom, 10.0)
-                            
+
                             // channels per location
                             VStack(alignment: .leading) {
                                 Text("   Front:")
@@ -230,7 +235,7 @@ struct EditDesignView: View {
                   HStack {
                     Spacer()
                     Button("Submit") {
-                        DataController().editDesign(design: design, title: title, roomDepth: roomDepth, roomWidth: roomWidth, screenDiagonal: screenDiagonal, screenWidth: screenWidth, screenHeight: screenHeight, area: area, people: people, lamps: lamps, lampsPerWall: lampsPerWall, screenWall: screenWall, aspectRatio: aspectRatio, speakers: speakers, frontSpeakers: frontSpeakers, sideSpeakers: sideSpeakers, lfe: lfe, context: managedObjectContext)
+                        DataController().editDesign(design: design, title: title, roomDepth: roomDepth, roomWidth: roomWidth, screenDiagonal: screenDiagonal, screenWidth: screenWidth, screenHeight: screenHeight, area: area, people: people, lamps: lamps, lampsWidth: lampsWidth, lampsDepth: lampsDepth, screenWall: screenWall, aspectRatio: aspectRatio, speakers: speakers, frontSpeakers: frontSpeakers, sideSpeakers: sideSpeakers, lfe: lfe, context: managedObjectContext)
                         updateDesignValues(design: design)
                     }.padding(.horizontal)
                   }
@@ -275,12 +280,15 @@ struct EditDesignView: View {
         area = String(design.area)
         screenWall = design.screenWall ?? ""
         aspectRatio = design.aspectRatio ?? ""
+        minThrowDistance = String(design.minThrowDistance)
+        maxThrowDistance = String(design.maxThrowDistance)
         screenDiagonal = String(design.screenDiagonal)
         screenWidth = String(design.screenWidth)
         screenHeight = String(design.screenHeight)
         people = String(format: "%.f", design.people)
         lamps = String(format: "%.f", design.lamps)
-        lampsPerWall = design.lampsPerWall!
+        lampsWidth = design.lampsWidth ?? ""
+        lampsDepth = design.lampsDepth ?? ""
 
         // Update the value of `speakers`
         speakers = updatedSpeakers

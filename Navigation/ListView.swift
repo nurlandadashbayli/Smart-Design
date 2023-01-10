@@ -1,10 +1,3 @@
-//
-//  ListView.swift
-//  Smart Design
-//
-//  Created by Nurlan Dadashbayli on 28.11.22.
-//
-
 import SwiftUI
 
 struct ListView: View {

@@ -1,10 +1,3 @@
-//
-//  AddDesignView.swift
-//  Smart Design
-//
-//  Created by Nurlan Dadashbayli on 17.11.22.
-//
-
 import SwiftUI
 
 struct AddDesignView: View {

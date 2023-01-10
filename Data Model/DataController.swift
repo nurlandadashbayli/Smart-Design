@@ -43,6 +43,8 @@ class DataController: ObservableObject {
         design.roomWidth = Double(roomWidth)! 
         design.screenWall = "Front"
         design.aspectRatio = "16:9"
+        design.minThrowDistance = Double(calc.calculateThrowDistance(roomWidth: roomWidth))!
+        design.maxThrowDistance = Double(calc.calculateMaxThrowDistance(roomWidth: roomWidth))!
         design.area = Double(calc.calculateArea(roomWidth: roomWidth, roomDepth: roomDepth))!
         design.screenDiagonal = Double(calc.calculateScreenDiagonal(roomWidth: roomWidth))!
         design.screenWidth = Double(calc.calculateScreenWidth(roomWidth: roomWidth))!
@@ -50,8 +52,10 @@ class DataController: ObservableObject {
         design.lvd = calc.calculateLongestAllowableViewingDistance(roomWidth: roomWidth)
         design.svd = calc.calculateShortestRecommendedViewingDistance(roomWidth: roomWidth)
         design.people = Double(calc.calculateNumberOfPeople(roomWidth: roomWidth))!
-        design.lamps = Double(calc.calculateLamps(roomWidth: roomWidth, roomDepth: roomDepth))!
-        design.lampsPerWall = calc.lampsPerWall(roomWidth: roomWidth, roomDepth: roomDepth)
+        design.lamps = Double(calc.calculateTotalLamps(roomWidth: roomWidth, roomDepth: roomDepth))!
+        design.lampsWidth = calc.calculateWidthLamps(roomWidth: roomWidth)
+        design.lampsDepth = calc.calculateDepthLamps(roomDepth: roomDepth)
+
         design.speakers = "7"
         design.speakerFront = "3"
         design.speakerSides = "2"
@@ -61,7 +65,7 @@ class DataController: ObservableObject {
     }
     
     // Function to Edit the design and save the changes
-    func editDesign(design: Design, title: String, roomDepth: String, roomWidth: String, screenDiagonal: String, screenWidth: String, screenHeight: String, area: String, people: String, lamps: String, lampsPerWall: String, screenWall: String, aspectRatio: String, speakers: String, frontSpeakers: String, sideSpeakers: String, lfe: Bool, context: NSManagedObjectContext) {
+    func editDesign(design: Design, title: String, roomDepth: String, roomWidth: String, screenDiagonal: String, screenWidth: String, screenHeight: String, area: String, people: String, lamps: String, lampsWidth: String, lampsDepth: String, screenWall: String, aspectRatio: String, speakers: String, frontSpeakers: String, sideSpeakers: String, lfe: Bool, context: NSManagedObjectContext) {
 
         design.date = Date() 
         design.title = title
@@ -69,13 +73,17 @@ class DataController: ObservableObject {
         design.roomWidth = Double(roomWidth)!
         design.screenWall = screenWall
         design.aspectRatio = aspectRatio
+        design.minThrowDistance = Double(calc.calculateThrowDistance(roomWidth: roomWidth))!
+        design.maxThrowDistance = Double(calc.calculateMaxThrowDistance(roomWidth: roomWidth))!
         design.area = Double(calc.calculateArea(roomWidth: roomWidth, roomDepth: roomDepth))!
         design.screenDiagonal = Double(calc.calculateScreenDiagonal(roomWidth: roomWidth))!
         design.screenWidth = Double(calc.calculateScreenWidth(roomWidth: roomWidth))!
         design.screenHeight = Double(calc.calculateScreenHeight(roomWidth: roomWidth))!
         design.people = Double(calc.calculateNumberOfPeople(roomWidth: roomWidth))!
-        design.lamps = Double(calc.calculateLamps(roomWidth: roomWidth, roomDepth: roomDepth))!
-        design.lampsPerWall = calc.lampsPerWall(roomWidth: roomWidth, roomDepth: roomDepth)
+        design.lamps = Double(calc.calculateTotalLamps(roomWidth: roomWidth, roomDepth: roomDepth))!
+        design.lampsWidth = calc.calculateWidthLamps(roomWidth: roomWidth)
+        design.lampsDepth = calc.calculateDepthLamps(roomDepth: roomDepth)
+        
         design.speakers = speakers
 
         if let speakersInt = Int(speakers) {
