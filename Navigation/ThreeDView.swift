@@ -8,8 +8,6 @@
 import SwiftUI
 import SceneKit
 
-
-
 var scene = SCNScene(named: "RoomScene.scn")
 var cameraNode: SCNNode? {
     scene?.rootNode.childNode(withName: "camera", recursively: false)
@@ -39,6 +37,9 @@ var r1 = scene?.rootNode.childNode(withName: "R1", recursively: false)
 var l2 = scene?.rootNode.childNode(withName: "L2", recursively: false)
 var r2 = scene?.rootNode.childNode(withName: "R2", recursively: false)
 
+var bl = scene?.rootNode.childNode(withName: "BL", recursively: false)
+var br = scene?.rootNode.childNode(withName: "BR", recursively: false)
+
 struct ThreeDView: View {
     
     var design: FetchedResults<Design>.Element
@@ -49,7 +50,7 @@ struct ThreeDView: View {
     }
 }
 
-func SceneUpdater(design: FetchedResults<Design>.Element ) {
+func SceneUpdaterAAA(design: FetchedResults<Design>.Element ) {
     
   //  var design: FetchedResults<Design>.Element
     
@@ -87,6 +88,32 @@ func SceneUpdater(design: FetchedResults<Design>.Element ) {
     l2?.position = SCNVector3(((design.roomWidth/2)-0.5), 0.266, 0)
     r2?.position = SCNVector3(-((design.roomWidth/2)-0.5), 0.266, 0)
 }
+
+func SceneUpdater(design: FetchedResults<Design>.Element ) {
+    
+    roomFloor?.scale = SCNVector3(design.roomWidth, design.roomDepth, 0.01)
+    right?.scale = SCNVector3(design.roomDepth, design.roomHeight, 0.01)
+    right?.position = SCNVector3(-(design.roomWidth/2), (design.roomHeight/2), 0)
+    left?.scale = SCNVector3(design.roomDepth, design.roomHeight, 0.01)
+    left?.position = SCNVector3((design.roomWidth/2), (design.roomHeight/2), 0)
+    front?.scale = SCNVector3(design.roomWidth, design.roomHeight, 0.01)
+    front?.position = SCNVector3(0, (design.roomHeight/2), (design.roomDepth/2))
+    back?.scale = SCNVector3(design.roomWidth, design.roomHeight, 0.01)
+    back?.position = SCNVector3(0, (design.roomHeight/2), -(design.roomDepth/2))
+    pScreen?.scale = SCNVector3((round(design.screenWidth)/100*2), (round(design.screenHeight)/100*2), 0.01)
+    pScreen?.position = SCNVector3(0, (design.roomHeight/2), (front?.position.z)!)
+    fr?.position = SCNVector3(((design.screenWidth/2)/100+0.3), (design.roomHeight/2), (design.roomDepth/2))
+    fl?.position = SCNVector3(-((design.screenWidth/2)/100+0.3), (design.roomHeight/2), (design.roomDepth/2))
+    fm?.position = SCNVector3(0, (design.roomHeight/5), (design.roomDepth/2))
+    l2?.position = SCNVector3((-design.roomWidth/2), (design.roomHeight/2), (-design.roomDepth/4))
+    r2?.position = SCNVector3((design.roomWidth/2), (design.roomHeight/2), (-design.roomDepth/4))
+    l1?.position = SCNVector3((-design.roomWidth/2), (design.roomHeight/2), (design.roomDepth/4))
+    r1?.position = SCNVector3((design.roomWidth/2), (design.roomHeight/2), (design.roomDepth/4))
+    bl?.position = SCNVector3((-design.roomWidth/3.6), (design.roomHeight/2), -(design.roomDepth/2))
+    br?.position = SCNVector3((design.roomWidth/3.6), (design.roomHeight/2), -(design.roomDepth/2))
+}
+
+
 
 //func createRoom(roomWidth: CGFloat, roomDepth: CGFloat) {
 //    // Create the floor node
