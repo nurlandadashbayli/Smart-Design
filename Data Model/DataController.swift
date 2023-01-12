@@ -40,7 +40,8 @@ class DataController: ObservableObject {
         design.date = Date() 
         design.title = title 
         design.roomDepth = Double(roomDepth)! 
-        design.roomWidth = Double(roomWidth)! 
+        design.roomWidth = Double(roomWidth)!
+        design.roomHeight = 2
         design.screenWall = "Front"
         design.aspectRatio = "16:9"
         design.minThrowDistance = Double(calc.calculateThrowDistance(roomWidth: roomWidth))!
@@ -65,12 +66,13 @@ class DataController: ObservableObject {
     }
     
     // Function to Edit the design and save the changes
-    func editDesign(design: Design, title: String, roomDepth: String, roomWidth: String, screenDiagonal: String, screenWidth: String, screenHeight: String, area: String, people: String, lamps: String, lampsWidth: String, lampsDepth: String, screenWall: String, aspectRatio: String, speakers: String, frontSpeakers: String, sideSpeakers: String, lfe: Bool, context: NSManagedObjectContext) {
+    func editDesign(design: Design, title: String, roomDepth: String, roomWidth: String, roomHeight: String, screenDiagonal: String, screenWidth: String, screenHeight: String, area: String, people: String, lamps: String, lampsWidth: String, lampsDepth: String, screenWall: String, aspectRatio: String, speakers: String, frontSpeakers: String, sideSpeakers: String, lfe: Bool, context: NSManagedObjectContext) {
 
         design.date = Date() 
         design.title = title
         design.roomDepth = Double(roomDepth)!
         design.roomWidth = Double(roomWidth)!
+        design.roomHeight = Double(roomHeight)!
         design.screenWall = screenWall
         design.aspectRatio = aspectRatio
         design.minThrowDistance = Double(calc.calculateThrowDistance(roomWidth: roomWidth))!

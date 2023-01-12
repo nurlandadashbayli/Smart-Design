@@ -12,6 +12,7 @@ struct EditDesignView: View {
     @State private var people: String = ""
     @State private var roomWidth: String = ""
     @State private var roomDepth: String = ""
+    @State private var roomHeight: String = ""
     @State private var screenDiagonal: String = ""
     @State private var screenWidth: String = ""
     @State private var screenHeight: String = ""
@@ -68,23 +69,27 @@ struct EditDesignView: View {
                     Group {
                         DisclosureGroup(isExpanded: $roomDimentions) {
                             Spacer()
+                            VStack(alignment: .leading) {
+                                Text("   Room Height: (m)")
+                                TextField("", text: $roomHeight, prompt: Text("\(design.roomHeight)"))
+                            }.padding(.bottom, 10.0)
                             HStack {
                                 // Width
                                 VStack(alignment: .leading) {
-                                    Text("   Room Width:")
+                                    Text("   Room Width: (m)")
                                     TextField("", text: $roomWidth, prompt: Text("\(design.roomWidth)"))
                                 }.padding(.bottom, 10.0)
                                 
                                 // Depth
                                 VStack(alignment: .leading) {
-                                    Text("   Room Depth:")
+                                    Text("   Room Depth: (m)")
                                     TextField("", text: $roomDepth, prompt: Text("\(design.roomDepth)"))
                                 }.padding(.bottom, 10.0)
                             }
                             
                             // Area
                             VStack(alignment: .leading) {
-                                Text("   Area:")
+                                Text("   Area: (m²)")
                                 TextField("", text: $area, prompt: Text("\(design.area)"))
                             }.padding(.bottom, 10.0)
                         }
@@ -103,21 +108,21 @@ struct EditDesignView: View {
                         DisclosureGroup(isExpanded: $screenProperties) {
                             Spacer()
                             
-                            // Screen Diagonal inch CONVERT TO CM
+                            // Screen Diagonal
                             VStack(alignment: .leading) {
-                                Text("   Screen Diagonal:")
+                                Text("   Screen Diagonal: (cm)")
                                 TextField("", text: $screenDiagonal, prompt: Text("\(design.screenDiagonal)"))
                             }.padding(.bottom, 10.0)
                             
                             // Screen width
                             HStack {
                                 VStack(alignment: .leading) {
-                                    Text("   Screen Width:")
+                                    Text("   Screen Width: (cm)")
                                     TextField("", text: $screenWidth, prompt: Text("\(design.screenWidth)"))
                                 }.padding(.bottom, 10.0)
                                 // Screen height
                                 VStack(alignment: .leading) {
-                                    Text("   Screen Height:")
+                                    Text("   Screen Height: (cm)")
                                     TextField("", text: $screenHeight, prompt: Text("\(design.screenHeight)"))
                                 }.padding(.bottom, 10.0)
                             }
@@ -133,12 +138,12 @@ struct EditDesignView: View {
                             // min and max throw distance
                             HStack {
                                 VStack(alignment: .leading) {
-                                    Text("   Minimum Throw Distance:")
+                                    Text("   Min. Throw Distance: (cm)")
                                     TextField("", text: $minThrowDistance, prompt: Text("\(design.minThrowDistance)"))
                                 }
                                 Spacer()
                                 VStack(alignment: .leading) {
-                                    Text("   Maximum Throw Distance:")
+                                    Text("   Max. Throw Distance: (cm)")
                                     TextField("", text: $maxThrowDistance, prompt: Text("\(design.maxThrowDistance)"))
                                 }
                             }.padding(.bottom, 10.0)
@@ -235,15 +240,18 @@ struct EditDesignView: View {
                   HStack {
                     Spacer()
                     Button("Submit") {
-                        DataController().editDesign(design: design, title: title, roomDepth: roomDepth, roomWidth: roomWidth, screenDiagonal: screenDiagonal, screenWidth: screenWidth, screenHeight: screenHeight, area: area, people: people, lamps: lamps, lampsWidth: lampsWidth, lampsDepth: lampsDepth, screenWall: screenWall, aspectRatio: aspectRatio, speakers: speakers, frontSpeakers: frontSpeakers, sideSpeakers: sideSpeakers, lfe: lfe, context: managedObjectContext)
+                        DataController().editDesign(design: design, title: title, roomDepth: roomDepth, roomWidth: roomWidth, roomHeight: roomHeight, screenDiagonal: screenDiagonal, screenWidth: screenWidth, screenHeight: screenHeight, area: area, people: people, lamps: lamps, lampsWidth: lampsWidth, lampsDepth: lampsDepth, screenWall: screenWall, aspectRatio: aspectRatio, speakers: speakers, frontSpeakers: frontSpeakers, sideSpeakers: sideSpeakers, lfe: lfe, context: managedObjectContext)
                         updateDesignValues(design: design)
+                        SceneUpdater(design: design)
                     }.padding(.horizontal)
                   }
                   .onAppear {
                     updateDesignValues(design: design)
+                      SceneUpdater(design: design)
                   }
                   .onChange(of: design) { design in
                     updateDesignValues(design: design)
+                      SceneUpdater(design: design)
                   }
                 }
                 .padding(.top, 10)
@@ -277,11 +285,12 @@ struct EditDesignView: View {
         title = design.title ?? ""
         roomDepth = String(design.roomDepth)
         roomWidth = String(design.roomWidth)
+        roomHeight = String(design.roomHeight)
         area = String(design.area)
         screenWall = design.screenWall ?? ""
         aspectRatio = design.aspectRatio ?? ""
-        minThrowDistance = String(design.minThrowDistance)
-        maxThrowDistance = String(design.maxThrowDistance)
+        minThrowDistance = String(round(design.minThrowDistance))
+        maxThrowDistance = String(round(design.maxThrowDistance))
         screenDiagonal = String(design.screenDiagonal)
         screenWidth = String(design.screenWidth)
         screenHeight = String(design.screenHeight)

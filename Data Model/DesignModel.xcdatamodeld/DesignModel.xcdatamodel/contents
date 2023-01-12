@@ -14,6 +14,7 @@
         <attribute name="minThrowDistance" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="people" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="roomDepth" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="roomHeight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="roomWidth" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="screenDiagonal" attributeType="Double" usesScalarValueType="YES"/>
         <attribute name="screenHeight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
