@@ -33,7 +33,11 @@ var fm = scene?.rootNode.childNode(withName: "FM", recursively: false)
 var fr = scene?.rootNode.childNode(withName: "FR", recursively: false)
 var fl = scene?.rootNode.childNode(withName: "FL", recursively: false)
 
+var l1 = scene?.rootNode.childNode(withName: "L1", recursively: false)
+var r1 = scene?.rootNode.childNode(withName: "R1", recursively: false)
 
+var l2 = scene?.rootNode.childNode(withName: "L2", recursively: false)
+var r2 = scene?.rootNode.childNode(withName: "R2", recursively: false)
 
 struct ThreeDView: View {
     
@@ -52,6 +56,7 @@ func SceneUpdater(design: FetchedResults<Design>.Element ) {
     
     roomFloor?.scale = SCNVector3(design.roomWidth, design.roomDepth, 0.01)
     
+    
     right?.scale = SCNVector3(design.roomDepth, design.roomHeight, 0.01)
     right?.position = SCNVector3(-(design.roomWidth/2), (design.roomHeight/2), 0)
     
@@ -63,16 +68,24 @@ func SceneUpdater(design: FetchedResults<Design>.Element ) {
     
     back?.scale = SCNVector3(design.roomWidth, design.roomHeight, 0.01)
     back?.position = SCNVector3(0, (design.roomHeight/2), -(design.roomDepth/2))
+
     
     // Reposition the screen to the same z value as the front
     pScreen?.scale = SCNVector3((round(design.screenWidth)/100*2), (round(design.screenHeight)/100*2), 0.01)
     pScreen?.position = SCNVector3(0, (design.roomHeight/2), (front?.position.z)!)
     
+
     fr?.position = SCNVector3(design.roomWidth/3.6, 0.266, (front?.position.z)! - 0.5)
     fr?.eulerAngles = SCNVector3(0, -25, 0)
     fm?.position = SCNVector3(0, 0.081, (front?.position.z)! - 0.5)
     fl?.position = SCNVector3(design.roomWidth/(-3.6), 0.266, (front?.position.z)! - 0.5)
     fl?.eulerAngles = SCNVector3(0, 25, 0)
+
+    l1?.position = SCNVector3(((design.roomWidth/2)-0.5), 0.266, (design.roomDepth/4))
+    r1?.position = SCNVector3(-((design.roomWidth/2)-0.5), 0.266, (design.roomDepth/4))
+    
+    l2?.position = SCNVector3(((design.roomWidth/2)-0.5), 0.266, 0)
+    r2?.position = SCNVector3(-((design.roomWidth/2)-0.5), 0.266, 0)
 }
 
 //func createRoom(roomWidth: CGFloat, roomDepth: CGFloat) {
