@@ -126,20 +126,10 @@
 			path = Scene;
 			sourceTree = "<group>";
 		};
-		54D172222933F66400FA340C /* Navigation */ = {
-			isa = PBXGroup;
-			children = (
-				54D8F9482926E4830008489B /* HomeView.swift */,
-				544FE129293415FA009BE103 /* ThreeDView.swift */,
-			);
-			path = Navigation;
-			sourceTree = "<group>";
-		};
 		54D8F93A2926E4830008489B = {
 			isa = PBXGroup;
 			children = (
 				54D8F9452926E4830008489B /* Smart Design */,
-				54D172222933F66400FA340C /* Navigation */,
 				54D8F95B2926EDF20008489B /* Views */,
 				54D8F9602926F4180008489B /* Helpers */,
 				544FE12B29341B4A009BE103 /* Scene */,
@@ -190,8 +180,10 @@
 		54D8F95B2926EDF20008489B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				54D8F9482926E4830008489B /* HomeView.swift */,
 				54D8F95E2926EE410008489B /* AddDesignView.swift */,
 				54D8F96329270FA50008489B /* EditDesignView.swift */,
+				544FE129293415FA009BE103 /* ThreeDView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

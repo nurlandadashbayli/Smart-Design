@@ -46,7 +46,7 @@ var lfe = scene?.rootNode.childNode(withName: "Subwoofer", recursively: false)
 //Light
 var lightL = scene?.rootNode.childNode(withName: "Light", recursively: false)
 var lightR = scene?.rootNode.childNode(withName: "LightR", recursively: false)
-var lightB = scene?.rootNode.childNode(withName: "LightR", recursively: false)
+var lightB = scene?.rootNode.childNode(withName: "LightB", recursively: false)
 
 /**
     ThreeDView struct that conforms to the SwiftUI View protocol.
@@ -126,7 +126,7 @@ func SoundSystem3D(design: FetchedResults<Design>.Element) {
     // Positions
     fl?.position = SCNVector3(((design.screenWidth/2)/100+0.3), (design.roomHeight/2), (design.roomDepth/2))
     fr?.position = SCNVector3(-((design.screenWidth/2)/100+0.3), (design.roomHeight/2), (design.roomDepth/2))
-    fm?.position = SCNVector3(0, (design.roomHeight/5), (design.roomDepth/2))
+    fm?.position = SCNVector3(0, ((pScreen?.position.y)! - 0.9), (design.roomDepth/2))
     l2?.position = SCNVector3((-design.roomWidth/2+0.4), 1, (-design.roomDepth/6))
     r2?.position = SCNVector3((design.roomWidth/2-0.4), 1, (-design.roomDepth/6))
     l1?.position = SCNVector3((-design.roomWidth/2+0.4), 1, (design.roomDepth/7))
@@ -223,6 +223,10 @@ func Light3D(design: FetchedResults<Design>.Element) {
         print("Error: design.lampsDepth is not a valid number")
         return
     }
+    guard let lampsWidth = Double(design.lampsWidth!) else {
+        print("Error: design.lampsDepth is not a valid number")
+        return
+    }
     // Iterate through the child nodes of the scene's root node
     for node in (scene?.rootNode.childNodes)! {
         // Check if the node's name is "newLight"
@@ -255,15 +259,16 @@ func Light3D(design: FetchedResults<Design>.Element) {
         newLight?.position = SCNVector3(x: right!.position.x, y: (right!.position.y+(right!.position.y/2)), z: firstZ2 + (distance2 * CGFloat(i)))
         scene?.rootNode.addChildNode(newLight!)
     }
+    
+    
+    // Add this block to place newLights on back wall
+    let distance3 = (back?.scale.x)! / CGFloat(lampsWidth + 1)
+    let firstX3 = -((back?.scale.x)!/2) + (distance3)
+    for i in 0..<Int(lampsWidth) {
+        let newLight = lightB?.clone()
+        newLight?.name = "newLight"
+      //  newLight?.eulerAngles = SCNVector3(x: 90, y: 0, z: 0)
+        newLight?.position = SCNVector3(x: firstX3 + (distance3 * CGFloat(i)), y: (back!.position.y+(back!.position.y/2)), z: back!.position.z )
+        scene?.rootNode.addChildNode(newLight!)
+    }
 }
-
-
-//    // Add this block to place newLights on back wall
-//    let distance3 = (back?.scale.x)! / CGFloat(lampsWidth + 1)
-//    let firstX3 = -((back?.scale.x)!/2) + (distance3)
-//    for i in 0..<Int(lampsWidth) {
-//        let newLight = lightB?.clone()
-//        newLight?.name = "newLight"
-//        newLight?.position = SCNVector3(x: firstX3 + (distance3 * CGFloat(i)), y: (back!.position.y+(back!.position.y/2)), z: back!.position.z )
-//        scene?.rootNode.addChildNode(newLight!)
-//    }
