@@ -12,14 +12,10 @@
 		540EB4F6293E902200932224 /* Calculators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F978292C588C0008489B /* Calculators.swift */; };
 		540EB550293FFC6700932224 /* Smart_DesignApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F9462926E4830008489B /* Smart_DesignApp.swift */; };
 		5417D7C029400625009CA2EC /* Smart_DesignUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5417D7B329400353009CA2EC /* Smart_DesignUITests.swift */; };
-		542085AE295BB7440072398A /* Room.scn in Resources */ = {isa = PBXBuildFile; fileRef = 542085AD295BB7440072398A /* Room.scn */; };
-		5446CD192938101100EA3D96 /* SceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5446CD182938101100EA3D96 /* SceneController.swift */; };
 		544FE12A293415FA009BE103 /* ThreeDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544FE129293415FA009BE103 /* ThreeDView.swift */; };
-		544FE130293423F7009BE103 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544FE12F293423F7009BE103 /* ListView.swift */; };
 		54AD1B2F296CD32D00A620D0 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F9592926E7F50008489B /* DataController.swift */; };
 		54AD1B30296CD32F00A620D0 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F9592926E7F50008489B /* DataController.swift */; };
 		54C6E2B229417CAA00739760 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F9482926E4830008489B /* HomeView.swift */; };
-		54C6E2B329417E3600739760 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544FE12F293423F7009BE103 /* ListView.swift */; };
 		54C6E2B429417E4800739760 /* ThreeDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544FE129293415FA009BE103 /* ThreeDView.swift */; };
 		54C6E2B529417E6C00739760 /* DesignModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F9562926E6C30008489B /* DesignModel.xcdatamodeld */; };
 		54C6E2B629417E7C00739760 /* AddDesignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D8F95E2926EE410008489B /* AddDesignView.swift */; };
@@ -58,10 +54,7 @@
 		540EB4EF293E8F1A00932224 /* Calculator_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator_Tests.swift; sourceTree = "<group>"; };
 		5417D7B129400353009CA2EC /* Smart DesignUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Smart DesignUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5417D7B329400353009CA2EC /* Smart_DesignUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Smart_DesignUITests.swift; sourceTree = "<group>"; };
-		542085AD295BB7440072398A /* Room.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Room.scn; sourceTree = "<group>"; };
-		5446CD182938101100EA3D96 /* SceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneController.swift; sourceTree = "<group>"; };
 		544FE129293415FA009BE103 /* ThreeDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeDView.swift; sourceTree = "<group>"; };
-		544FE12F293423F7009BE103 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		54D8F9432926E4830008489B /* Smart Design.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Design.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54D8F9462926E4830008489B /* Smart_DesignApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Smart_DesignApp.swift; sourceTree = "<group>"; };
 		54D8F9482926E4830008489B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -129,8 +122,6 @@
 			isa = PBXGroup;
 			children = (
 				540024F82932DB0E005CDA3B /* RoomScene.scn */,
-				5446CD182938101100EA3D96 /* SceneController.swift */,
-				542085AD295BB7440072398A /* Room.scn */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -139,7 +130,6 @@
 			isa = PBXGroup;
 			children = (
 				54D8F9482926E4830008489B /* HomeView.swift */,
-				544FE12F293423F7009BE103 /* ListView.swift */,
 				544FE129293415FA009BE103 /* ThreeDView.swift */,
 			);
 			path = Navigation;
@@ -335,7 +325,6 @@
 				54D8F94E2926E4850008489B /* Preview Assets.xcassets in Resources */,
 				54D8F94B2926E4850008489B /* Assets.xcassets in Resources */,
 				540024F92932DB0E005CDA3B /* RoomScene.scn in Resources */,
-				542085AE295BB7440072398A /* Room.scn in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,7 +352,6 @@
 				54AD1B30296CD32F00A620D0 /* DataController.swift in Sources */,
 				54C6E2B929417E9300739760 /* Calculators.swift in Sources */,
 				54C6E2B429417E4800739760 /* ThreeDView.swift in Sources */,
-				54C6E2B329417E3600739760 /* ListView.swift in Sources */,
 				54C6E2B529417E6C00739760 /* DesignModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -373,7 +361,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				544FE12A293415FA009BE103 /* ThreeDView.swift in Sources */,
-				5446CD192938101100EA3D96 /* SceneController.swift in Sources */,
 				54D8F9582926E6C30008489B /* DesignModel.xcdatamodeld in Sources */,
 				54D8F95A2926E7F50008489B /* DataController.swift in Sources */,
 				540EB550293FFC6700932224 /* Smart_DesignApp.swift in Sources */,
@@ -381,7 +368,6 @@
 				54D8F96429270FA50008489B /* EditDesignView.swift in Sources */,
 				54D8F95F2926EE410008489B /* AddDesignView.swift in Sources */,
 				54D8F979292C588C0008489B /* Calculators.swift in Sources */,
-				544FE130293423F7009BE103 /* ListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -613,12 +599,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "NurlanDadashbayli.Smart-Design";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator driverkit iphoneos iphonesimulator macosx watchos watchsimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,3,4";
 			};
 			name = Debug;
 		};
@@ -648,12 +634,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "NurlanDadashbayli.Smart-Design";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator driverkit iphoneos iphonesimulator macosx watchos watchsimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,3,4";
 			};
 			name = Release;
 		};

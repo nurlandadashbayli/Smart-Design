@@ -24,9 +24,9 @@ struct EditDesignView: View {
     @State private var lampsWidth = ""
     @State private var lampsDepth = ""
     @State private var speakers: String = ""
-    @State private var frontSpeakers: String = ""
-    @State private var backSpeakers: String = ""
-    @State private var sideSpeakers: String = ""
+    @State private var speakerFront: String = ""
+    @State private var speakerBack: String = ""
+    @State private var speakerSides: String = ""
     @State private var lfe: Bool = true
     
     
@@ -205,20 +205,14 @@ struct EditDesignView: View {
                         DisclosureGroup(isExpanded: $soundSystem) {
                             Spacer()
                             VStack(alignment: .leading) {
-                                Text("   Number of channels:")
+                                Text("   Number of speakers:")
                                 TextField("", text: $speakers, prompt: Text(""))
-                                
-
-                            }.padding(.bottom, 10.0)
-
-                            // channels per location
-                            VStack(alignment: .leading) {
                                 Text("   Front:")
-                                TextField("", text: $frontSpeakers, prompt: Text("\(design.speakerFront ?? "")"))
+                                TextField("", text: $speakerFront, prompt: Text("\(design.speakerFront ?? "")"))
                                 Text("   Back:")
-                                TextField("", text: $backSpeakers, prompt: Text("\(design.speakerBack ?? "")"))
+                                TextField("", text: $speakerBack, prompt: Text("\(design.speakerBack ?? "")"))
                                 Text("   Left and Right:")
-                                TextField("", text: $sideSpeakers, prompt: Text("\(design.speakerSides ?? "")"))
+                                TextField("", text: $speakerSides, prompt: Text("\(design.speakerSides ?? "")"))
                             }.padding(.bottom, 10.0)
                             // Subwoofer
                             Toggle(isOn: $lfe) {
@@ -240,7 +234,7 @@ struct EditDesignView: View {
                   HStack {
                     Spacer()
                     Button("Submit") {
-                        DataController().editDesign(design: design, title: title, roomDepth: roomDepth, roomWidth: roomWidth, roomHeight: roomHeight, screenDiagonal: screenDiagonal, screenWidth: screenWidth, screenHeight: screenHeight, area: area, people: people, lamps: lamps, lampsWidth: lampsWidth, lampsDepth: lampsDepth, screenWall: screenWall, aspectRatio: aspectRatio, speakers: speakers, frontSpeakers: frontSpeakers, sideSpeakers: sideSpeakers, lfe: lfe, context: managedObjectContext)
+                        DataController().editDesign(design: design, title: title, roomDepth: roomDepth, roomWidth: roomWidth, roomHeight: roomHeight, screenDiagonal: screenDiagonal, screenWidth: screenWidth, screenHeight: screenHeight, area: area, people: people, lamps: lamps, lampsWidth: lampsWidth, lampsDepth: lampsDepth, screenWall: screenWall, aspectRatio: aspectRatio, speakers: speakers, speakerFront: speakerFront, speakerBack: speakerBack, speakerSides: speakerSides, lfe: lfe, context: managedObjectContext)
                         updateDesignValues(design: design)
                         SceneUpdater(design: design)
                     }.padding(.horizontal)
@@ -276,12 +270,12 @@ struct EditDesignView: View {
     
     func updateDesignValues(design: Design) {
         
-        // Split the value of `design.speakers` using the `.split(separator:)` method
-        let parts = "\(design.speakers!).\(design.lfe ? 1 : 0)".split(separator: ".")
-
-        // Take the first element of the resulting array
-        let updatedSpeakers = "\(parts[0]).\(design.lfe ? 1 : 0)"
-        
+//        // Split the value of `design.speakers` using the `.split(separator:)` method
+//        let parts = "\(design.speakers!).\(design.lfe ? 1 : 0)".split(separator: ".")
+//
+//        // Take the first element of the resulting array
+//        let updatedSpeakers = "\(parts[0]).\(design.lfe ? 1 : 0)"
+//
         title = design.title ?? ""
         roomDepth = String(design.roomDepth)
         roomWidth = String(design.roomWidth)
@@ -300,10 +294,10 @@ struct EditDesignView: View {
         lampsDepth = design.lampsDepth ?? ""
 
         // Update the value of `speakers`
-        speakers = updatedSpeakers
-        frontSpeakers = design.speakerFront ?? ""
-        backSpeakers = design.speakerBack ?? ""
-        sideSpeakers = design.speakerSides ?? ""
+        speakers = design.speakers ?? ""
+        speakerFront = design.speakerFront ?? ""
+        speakerBack = design.speakerBack ?? ""
+        speakerSides = design.speakerSides ?? ""
         lfe = design.lfe
     }
 
